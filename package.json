@@ -5,6 +5,7 @@
   "description": "",
   "scripts": {
     "start_server": "node ./server/bin/server.js",
+    "start_app": "cd app && yarn start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,9 +23,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "^4.16.2",
-    "morgan": "~1.9.0",
-    "pug": "^2.0.0-rc.4",
-    "serve-favicon": "^2.4.5"
+    "morgan": "~1.9.0"
   },
   "devDependencies": {
     "eslint": "^4.16.0",
