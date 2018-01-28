@@ -1,27 +1,5 @@
 .DS_Store
 
-# ignore server-side stuff
-*$py.class
-__pycache__/
-*.py[cod]
-
-# pyenv
-.python-version
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Flask stuff:
-instance/
-.webassets-cache
-
 # ignore libs & build output
-site/node_modules
-site/build
-
+node_modules
+app/build

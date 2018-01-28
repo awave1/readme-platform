@@ -1,0 +1,28 @@
+{
+  "name": "readme-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start_server": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awave1/readme-platform.git"
+  },
+  "author": "codeplexion",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/awave1/readme-platform/issues"
+  },
+  "homepage": "https://github.com/awave1/readme-platform#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
+  }
+}
