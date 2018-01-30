@@ -1,3 +1,3 @@
-# Readme - publishing platform
+# ReadMe - publishing platform
 
 ## Get Started
