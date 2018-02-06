@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import Toolbar from '../Toolbar/Toolbar'
+import MainPage from '../MainPage/MainPage'
+import Feed from '../Feed/Feed'
+import Account from '../Account/Account'
 import './App.css'
 
 class App extends Component {
@@ -7,9 +11,9 @@ class App extends Component {
     return (
       <div className="App">
         <Toolbar/>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/feed" component={Feed}/>
+        <Route exact path="/account" component={Account}/>
       </div>
     )
   }
