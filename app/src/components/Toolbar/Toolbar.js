@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faBars from '@fortawesome/fontawesome-free-solid/faBars'
+import { Link } from 'react-router-dom'
 import './Toolbar.css'
 
 class Toolbar extends Component {
@@ -35,21 +36,24 @@ class Toolbar extends Component {
   render() {
     return(
       <nav className="toolbar_container">
+
         <div className="toolbar_container__wide">
           <div className="toolbar_links__wide">
-            <a href="/" className="toolbar_link">Home</a>
-						<a href="/feed" className="toolbar_link">Feed</a>
-						<a href="/account" className="toolbar_link">Account</a>          
+            <li className="toolbar_link"><Link to="/">Home</Link></li>
+            <li className="toolbar_link"><Link to="/feed">Feed</Link></li>
+            <li className="toolbar_link"><Link to="/account">Account</Link></li>
           </div>
         </div>
+
         <div className="toolbar_container__mobile">
           <FontAwesomeIcon onClick={this.menuToggle} className="toolbar_btn__mobile" icon={faBars}/>
           <div className="toolbar_links__mobile">
-            <a href="/" onClick={this.menuToggle} className="toolbar_link">Home</a>
-						<a href="/feed" onClick={this.menuToggle} className="toolbar_link">Feed</a>
-						<a href="/account" onClick={this.menuToggle} className="toolbar_link">Account</a>          
+            <li onClick={this.menuToggle} className="toolbar_link"><Link to="/">Home</Link></li>
+            <li onClick={this.menuToggle} className="toolbar_link"><Link to="/feed">Feed</Link></li>
+            <li onClick={this.menuToggle} className="toolbar_link"><Link to="/account">Account</Link></li>
           </div>
         </div>
+
       </nav>
     )
   }

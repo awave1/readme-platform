@@ -22,6 +22,7 @@ $LINK_COLOR: #212121;
       text-align: center;
 
       .toolbar_link {
+        list-style: none;
         display: inline-block;
         padding: 0 2em;
       }
@@ -37,6 +38,7 @@ $LINK_COLOR: #212121;
     .toolbar_links__mobile {
       display: none;
       .toolbar_link {
+        list-style: none;
         display: block;
         float: left;
         clear: left;
