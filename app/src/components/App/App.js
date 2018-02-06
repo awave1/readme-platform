@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
 import Toolbar from '../Toolbar/Toolbar'
-import MainPage from '../MainPage/MainPage'
-import Feed from '../Feed/Feed'
-import Account from '../Account/Account'
+import Routes from '../Routes'
 import './App.css'
 
+/** 
+ * App is the main entry of the website.
+ * Contains routes and Toolbar
+*/
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Toolbar/>
-        <Route exact path="/" component={MainPage} />
-        <Route exact path="/feed" component={Feed}/>
-        <Route exact path="/account" component={Account}/>
+        <Routes />
       </div>
     )
   }

@@ -5,6 +5,9 @@ import './index.css'
 import App from './components/App/App'
 import registerServiceWorker from './registerServiceWorker'
 
+/**
+ * Renders router + App
+ */
 ReactDOM.render((
   <BrowserRouter>
     <App/>
