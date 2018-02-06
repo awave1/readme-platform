@@ -1,0 +1,59 @@
+$HEADER_BG: #222;
+$LINK_COLOR: #212121;
+
+.toolbar_container {
+  overflow: hidden;
+  padding: 1em;
+
+
+  .toolbar_link {
+    color: $LINK_COLOR;
+    text-decoration: none;
+    a:visited {
+      color: $LINK_COLOR;
+    }
+  }
+
+  .toolbar_container__wide {
+    display: none;
+    margin: 0 auto;
+
+    .toolbar_links__wide {
+      text-align: center;
+
+      .toolbar_link {
+        display: inline-block;
+        padding: 0 2em;
+      }
+    }
+  }
+
+  .toolbar_container__mobile {
+    .toolbar_btn__mobile {
+      float: left;
+      cursor: pointer;
+
+    }
+    .toolbar_links__mobile {
+      display: none;
+      .toolbar_link {
+        display: block;
+        float: left;
+        clear: left;
+        padding: 0.5em 0;
+      }
+    }
+
+  }
+}
+
+@media (min-width: 820px) {
+  .toolbar_container {
+    .toolbar_container__wide {
+      display: block;
+    }
+    .toolbar_container__mobile {
+      display: none;
+    }
+  }
+}
