@@ -5,7 +5,9 @@ import './App.css'
 
 /** 
  * App is the main entry of the website.
- * Contains routes and Toolbar
+ * Contains Routes and Toolbar
+ * 
+ * Toolbar will be present on the page at all times
 */
 class App extends Component {
   render() {
