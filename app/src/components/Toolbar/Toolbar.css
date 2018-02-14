@@ -1,0 +1,34 @@
+.toolbar_container {
+  overflow: hidden;
+  padding: 1em; }
+  .toolbar_container .toolbar_link {
+    color: #212121;
+    text-decoration: none; }
+    .toolbar_container .toolbar_link a:visited {
+      color: #212121; }
+  .toolbar_container .toolbar_container__wide {
+    display: none;
+    margin: 0 auto; }
+    .toolbar_container .toolbar_container__wide .toolbar_links__wide {
+      text-align: center; }
+      .toolbar_container .toolbar_container__wide .toolbar_links__wide .toolbar_link {
+        list-style: none;
+        display: inline-block;
+        padding: 0 2em; }
+  .toolbar_container .toolbar_container__mobile .toolbar_btn__mobile {
+    float: left;
+    cursor: pointer; }
+  .toolbar_container .toolbar_container__mobile .toolbar_links__mobile {
+    display: none; }
+    .toolbar_container .toolbar_container__mobile .toolbar_links__mobile .toolbar_link {
+      list-style: none;
+      display: block;
+      float: left;
+      clear: left;
+      padding: 0.5em 0; }
+
+@media (min-width: 820px) {
+  .toolbar_container .toolbar_container__wide {
+    display: block; }
+  .toolbar_container .toolbar_container__mobile {
+    display: none; } }
