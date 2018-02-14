@@ -6,6 +6,9 @@
   "scripts": {
     "start_server": "node ./server/bin/server.js",
     "start_app": "cd app && yarn start",
+    "fix-lint": "npm run fix-server && npm run fix-app",
+    "fix-server": "./node_modules/eslint/bin/eslint.js --fix .",
+    "fix-app": "./app/node_modules/eslint/bin/eslint.js --fix ./app/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
