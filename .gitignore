@@ -3,3 +3,4 @@
 # ignore libs & build output
 node_modules
 app/build
+*.css
