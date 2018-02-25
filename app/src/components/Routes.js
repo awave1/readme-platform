@@ -7,6 +7,7 @@ import Account from './Account/Account'
 /** 
  * Site specific routes
  */
+// todo: replace with routes.js
 class Routes extends Component {
   render() {
     return(
