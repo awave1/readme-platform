@@ -1,6 +1,10 @@
 .toolbar_container {
   overflow: hidden;
-  padding: 1em; }
+  padding: 1em;
+  height: 64px;
+  position: relative;
+  margin-left: 40px;
+  margin-right: 40px; }
   .toolbar_container .toolbar_link {
     color: #212121;
     text-decoration: none; }
@@ -10,16 +14,32 @@
     display: none;
     margin: 0 auto; }
     .toolbar_container .toolbar_container__wide .toolbar_links__wide {
-      text-align: center; }
+      text-align: right;
+      text-align: right;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      left: 0; }
       .toolbar_container .toolbar_container__wide .toolbar_links__wide .toolbar_link {
         list-style: none;
         display: inline-block;
         padding: 0 2em; }
+    .toolbar_container .toolbar_container__wide .toolbar_container__wide_logo {
+      width: 50px;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); }
   .toolbar_container .toolbar_container__mobile .toolbar_btn__mobile {
     float: left;
-    cursor: pointer; }
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
   .toolbar_container .toolbar_container__mobile .toolbar_links__mobile {
-    display: none; }
+    display: none;
+    position: absolute; }
     .toolbar_container .toolbar_container__mobile .toolbar_links__mobile .toolbar_link {
       list-style: none;
       display: block;

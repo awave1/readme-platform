@@ -4,6 +4,10 @@ $LINK_COLOR: #212121;
 .toolbar_container {
   overflow: hidden;
   padding: 1em;
+  height: 64px;
+  position: relative;
+  margin-left: 40px;
+  margin-right: 40px;
 
 
   .toolbar_link {
@@ -19,7 +23,14 @@ $LINK_COLOR: #212121;
     margin: 0 auto;
 
     .toolbar_links__wide {
-      text-align: center;
+      text-align: right;
+
+      text-align: right;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      left: 0;
 
       .toolbar_link {
         list-style: none;
@@ -27,16 +38,26 @@ $LINK_COLOR: #212121;
         padding: 0 2em;
       }
     }
+    .toolbar_container__wide_logo {
+      width: 50px;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 
   .toolbar_container__mobile {
     .toolbar_btn__mobile {
       float: left;
       cursor: pointer;
-
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
     .toolbar_links__mobile {
       display: none;
+      position: absolute;
       .toolbar_link {
         list-style: none;
         display: block;
