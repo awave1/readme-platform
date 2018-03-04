@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faBars from '@fortawesome/fontawesome-free-solid/faBars'
 import { Link } from 'react-router-dom'
 import './Toolbar.css'
 import logo from '../../logo.svg'
@@ -21,45 +19,35 @@ class Toolbar extends Component {
       },
       {
         name: 'Account',
-        link: '/account,'
+        link: '/account',
       }
     ]
   }
 
-  menuToggle() {
-    const mobileLinks = document.querySelector('.toolbar_links__mobile')
-    const toolbar = document.querySelector('.toolbar_container')
-    if (mobileLinks.style.display === 'block') {
-      mobileLinks.style.display = 'none'
-      toolbar.style.height = '64px'
-    } else {
-      mobileLinks.style.display = 'block'
-      toolbar.style.height = '120px'
-    }
+  getMenuItems() {
+    return this.menuItems.map(el =>
+      <li className="nav-item">
+        <Link className="nav-link" to={el.link}>{el.name}</Link>
+      </li>
+    )
   }
 
   render() {
     return(
-      <nav className="toolbar_container">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar_main">
+        <Link className="navbar-brand" to="/">
+          <img src={logo} width="30" height="30" class="d-inline-block align-top" alt=""/>
+          {this.props.text}
+        </Link>
 
-        <div className="toolbar_container__wide">
-          <img src={logo} alt="logo" className="toolbar_container__wide_logo" />
-          <div className="toolbar_links__wide">
-            <li className="toolbar_link"><Link to="/">Home</Link></li>
-            <li className="toolbar_link"><Link to="/feed">Feed</Link></li>
-            <li className="toolbar_link"><Link to="/account">Account</Link></li>
-          </div>
-        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div className="toolbar_container__mobile">
-          <div className="toolbar_btn__mobile">
-            <FontAwesomeIcon onClick={this.menuToggle} className="" icon={faBars}/>
-          </div>
-          <div className="toolbar_links__mobile">
-            <li onClick={this.menuToggle} className="toolbar_link"><Link to="/">Home</Link></li>
-            <li onClick={this.menuToggle} className="toolbar_link"><Link to="/feed">Feed</Link></li>
-            <li onClick={this.menuToggle} className="toolbar_link"><Link to="/account">Account</Link></li>
-          </div>
+        <div className="collapse navbar-collapse" id="navbar_main__links">
+          <ul class="navbar-nav mr-auto">
+            {this.getMenuItems()}
+          </ul>
         </div>
 
       </nav>
