@@ -15,3 +15,8 @@ With ```npm``` installed, run the following:
 
 #### To start the api server
 1. In ```readme-platform``` folder run ```npm run start_server``` or ```yarn start_server``` 
+
+## Things to know
+1. Basic HTML/CSS
+2. [React](https://reactjs.org/tutorial/tutorial.html) + [ES6 (modern JavaScript)](https://developer.mozilla.org/en-US/docs/Learn/JavaScript)
+3. [TypeScript (ES6 with types)](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
