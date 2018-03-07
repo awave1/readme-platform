@@ -50,6 +50,7 @@
     "@types/node": "^9.4.6",
     "@types/passport": "^0.4.3",
     "@types/passport-local": "^1.0.32",
+    "@types/uuid": "^3.4.3",
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
