@@ -15,6 +15,7 @@ class User {
     this.username = username
     this._email = email
     this.userId = uuid()
+    this.posts = new Array()
   }
 
   get fullName(): string {
@@ -33,6 +34,9 @@ class User {
     this.posts.push(post)
   }
 
+  public getPosts(): Array<Post> {
+    return this.posts
+  }
 }
 
 export default User

@@ -11,10 +11,15 @@ class Post {
   constructor() {
     this.postId = uuid()
     this.datePublished = new Date()
+    this.tags = new Array()
   }
 
   public addTag(tag: Tag) {
     this.tags.push(tag)
+  }
+
+  public getTags(): Array<Tag> {
+    return this.tags
   }
 
 }

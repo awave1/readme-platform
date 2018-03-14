@@ -1,7 +1,7 @@
 import uuid from 'uuid/v1'
 
 class Tag {
-  private name: string
+  readonly name: string
   readonly tagId: string
 
   constructor(name: string) {
