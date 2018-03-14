@@ -1,4 +1,5 @@
 import uuid from 'uuid/v1'
+import Post from './Post'
 
 class User {
   readonly firstName: string
@@ -6,6 +7,7 @@ class User {
   readonly username: string
   private _email: string
   readonly userId: string
+  private posts: Array<Post>
 
   constructor (first: string, last: string, username: string, email: string) {
     this.firstName = first
@@ -25,6 +27,10 @@ class User {
 
   set email(newEmail: string) {
     this.email = newEmail
+  }
+
+  public addNewPost(post: Post) {
+    this.posts.push(post)
   }
 
 }
