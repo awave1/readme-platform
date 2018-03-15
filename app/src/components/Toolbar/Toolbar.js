@@ -26,7 +26,7 @@ class Toolbar extends Component {
 
   getMenuItems() {
     return this.menuItems.map(el =>
-      <li className="nav-item">
+      <li class Name="nav-item">
         <Link className="nav-link" to={el.link}>{el.name}</Link>
       </li>
     )
@@ -34,22 +34,45 @@ class Toolbar extends Component {
 
   render() {
     return(
-      <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar_main">
+      <nav className="navbar navbar-expand-md navbar-light bg-light sticky-top" id="navbar_main">
         <Link className="navbar-brand" to="/">
-          <img src={logo} width="30" height="30" class="d-inline-block align-top" alt=""/>
+          <img src="http://placehold.it/120x29?text=Logo" class="d-inline-block align-top" alt=""/>
           {this.props.text}
         </Link>
+
+        
+					
+				
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbar_main__links">
+        <div className="collapse navbar-collapse" id="navbarToggleExternalContent">
           <ul class="navbar-nav mr-auto">
             {this.getMenuItems()}
           </ul>
         </div>
 
+  
+
+         <ul class="navbar-nav flex-row mr-lg-0">
+            <li class="nav-item">
+                 <a class="nav-link pr-2"><i class="fa fa-search"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pr-2"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-3 mr-lg-0" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                <img src="http://placehold.it/50x50?text=Picture" class="profile-picture" /><span class="caret"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="">test</a>
+                    <a class="dropdown-item" href="">test2</a>
+                </div>
+            </li>
+        </ul>
       </nav>
     )
   }
