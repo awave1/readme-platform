@@ -10,3 +10,6 @@
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {
   position: absolute !important; }
+
+.dropdown-menu {
+  min-width: 7rem; }
