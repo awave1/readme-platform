@@ -7,3 +7,6 @@
   /* Interchange this value depending on prefering width vs. height */
   width: 35px;
   height: 35x; }
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  position: absolute !important; }
