@@ -67,7 +67,7 @@ class Toolbar extends Component {
                     </DropdownItem>
 
                     <DropdownItem>
-                      <Link style={{color:'#212529'}} to="/settings">Settings</Link>
+                      <Link style={{color:'#212529'}} to="/settingsππ">Settings</Link>
                     </DropdownItem>
 
                     <DropdownItem divider />
