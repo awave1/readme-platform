@@ -34,7 +34,7 @@ class Toolbar extends Component {
     render() {
       return (
         <div>
-          <Navbar color="light" light expand="md">
+          <Navbar color="light" light expand="md" className="mr-auto">
             
             <NavbarBrand href="/"> 
                 <img src="http://placehold.it/120x29?text=Logo" className="d-inline-block align-top" alt="readMe logo"/>
@@ -46,35 +46,38 @@ class Toolbar extends Component {
               
               <Nav className="mr" navbar>
                 <NavItem>
-                  <NavLink href="/feed">Feed</NavLink>
+                  <NavLink>
+                    <Link style={{color:'#212529'}} to="/feed">Feed</Link>
+                  </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/account">Account</NavLink>
+                  <NavLink href="/account">
+                    <Link style={{color:'#212529'}} to="/account">Account</Link>
+                  </NavLink>
                 </NavItem>
 
-              <UncontrolledDropdown nav inNavbar>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    <img src="http://placehold.it/50x50?text=Picture" className="profile-picture" alt="profile" />
+                  </DropdownToggle>
 
-                <DropdownToggle nav caret>
-                  <img src="http://placehold.it/50x50?text=Picture" className="profile-picture" alt="profile" />
-                </DropdownToggle>
+                  <DropdownMenu >
+                    <DropdownItem>
+                      <Link style={{color:'#212529'}} to="/account">Profile</Link>
+                    </DropdownItem>
 
-                <DropdownMenu >
-                  <DropdownItem href="/account">
-                    Profile
-                  </DropdownItem>
+                    <DropdownItem>
+                      <Link style={{color:'#212529'}} to="/settings">Settings</Link>
+                    </DropdownItem>
 
-                  <DropdownItem>
-                    Settings
-                  </DropdownItem>
+                    <DropdownItem divider />
 
-                  <DropdownItem divider />
+                    <DropdownItem href="#">
+                      Logout
+                    </DropdownItem>
 
-                  <DropdownItem href="#">
-                    Logout
-                  </DropdownItem>
-
-                </DropdownMenu>
-              </UncontrolledDropdown>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
 
               </Nav>
             </Collapse>
