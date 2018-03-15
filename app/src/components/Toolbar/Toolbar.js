@@ -8,7 +8,7 @@ class Toolbar extends Component {
 
     constructor(props) {
       super(props)
-      this.toggle = this.toggle.bind(this)
+      this.toggle = this.toggle.bind(this);
       this.state = {
         isOpen: false
       }
@@ -26,7 +26,7 @@ class Toolbar extends Component {
           <Navbar color="light" light expand="md" className="mr-auto">
             
             <NavbarBrand href="/"> 
-                <img src="http://placehold.it/120x29?text=Logo" className="d-inline-block align-top" alt="readMe logo"/>
+                <img src={logo} style={{width: '43px'}} className="d-inline-block align-top" alt="readMe logo"/>
             </NavbarBrand>
 
             <NavbarToggler onClick={this.toggle} /> 
