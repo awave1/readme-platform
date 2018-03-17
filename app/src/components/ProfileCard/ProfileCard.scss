@@ -1,0 +1,88 @@
+//colors
+$color_woodsmoke_approx: #111;
+$color_gallery_approx: #eee;
+$color_mine_shaft_60_approx: rgba(51, 51, 51, 0.6);
+$blue: blue;
+$color_tundora_approx: #444;
+$color_fuscous_gray_approx: #555;
+$color_mountain_mist_approx: #999;
+
+//fonts
+$font_0: Roboto;
+
+* {
+	margin: 0;
+	//Instead of the line below you could use @include box-sizing($bs)
+	box-sizing: border-box;
+}
+body {
+	font-family: $font_0;
+}
+.content {
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	background: $color_woodsmoke_approx;
+	box-shadow: 0 0 30px $color_gallery_approx;
+	// .wrapper {
+	// 	margin: auto;
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	width: 300px;
+	// 	height: 360px;
+	// 	overflow: hidden;
+	// 	background: $color_gallery_approx;
+	// 	border-radius: 2px;
+	// 	box-shadow: 5px 15px 15px $color_mine_shaft_60_approx;
+	// }
+}
+.content__img {
+	width: 100%;
+	height: 100%;
+	filter: blur(10px);
+	position: absolute;
+}
+.profile-thumbnail {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: $blue;
+	position: absolute;
+	border-radius: 50%;
+	left: 50%;
+	bottom: 50%;
+	margin-left: -40px;
+	margin-bottom: -30px;
+	box-shadow: 0 0 0 4px $color_gallery_approx;
+}
+.profile-card {
+	width: 100%;
+	height: 130px;
+	display: flex;
+	background: $color_gallery_approx;
+}
+.profile-card-wrap {
+	width: 80%;
+	height: 45%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-conten: center;
+	flex-direction: column;
+	h2 {
+		color: $color_tundora_approx;
+		padding: 10px;
+	}
+}
+.profile-card-info {
+	width: 100%;
+	padding: 10px;
+	.info {
+		color: $color_fuscous_gray_approx;
+		font-size: .8em;
+		text-align: center;
+	}
+}

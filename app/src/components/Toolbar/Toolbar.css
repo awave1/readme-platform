@@ -2,7 +2,6 @@
   margin-right: 5px;
   float: left;
   border-radius: 50%;
-  /*background: url(example.jpg) 50% 50% no-repeat;  50% 50% centers image in div */
   background-size: auto 100%;
   /* Interchange this value depending on prefering width vs. height */
   width: 35px;
