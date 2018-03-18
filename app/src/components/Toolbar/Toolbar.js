@@ -9,8 +9,12 @@ class Toolbar extends Component {
     constructor(props) {
       super(props)
       this.toggle = this.toggle.bind(this)
+      this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+      
       this.state = {
-        isOpen: false
+        isOpen: false,
+        width: window.innerWidth,
+        height: window.innerHeight,
       }
     }
 
@@ -20,43 +24,94 @@ class Toolbar extends Component {
       })
     }
 
+    updateWindowDimensions() {
+      this.setState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+    }
+
+    componentDidMount() {
+      this.updateWindowDimensions()
+      window.addEventListener('resize', this.updateWindowDimensions)
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('resize')
+    }
+
     render() {
+      const isMobile = this.state.width <= 767
+
       return (
-        <Navbar color="light" light expand="md" className="mr-auto">
-          <NavbarToggler onClick={this.toggle} /> 
+        <div>
+          {isMobile ? (  
+            <Navbar color="light" light expand="md" className="mr-auto">
 
-          <NavbarBrand className="toolbar-brand" href="/"> 
-              <img src={logo} style={{width: '43px'}} className="d-inline-block align-top" alt="readMe logo"/>
-          </NavbarBrand>
+              <NavbarToggler onClick={this.toggle} /> 
 
-          <Nav>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                <img src="http://placehold.it/50x50?text=Picture" className="profile-picture" alt="profile" />
-              </DropdownToggle>
+              <NavbarBrand className="toolbar-brand" href="/"> 
+                <img src={logo} style={{width: '43px'}} className="d-inline-block align-top" alt="readMe logo"/>
+              </NavbarBrand>
 
-              <DropdownMenu>
-                <DropdownLink style={{color:'#212529'}} to="/account">Profile</DropdownLink>
-                <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
-                <DropdownItem divider />
-                <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
+              <Nav>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    <img src="http://placehold.it/50x50?text=Picture" className="profile-picture" alt="profile" />
+                  </DropdownToggle>
 
-          {/* Collapsed menu */}
-          <Collapse isOpen={this.state.isOpen} right Collapse navbar>
-            <Nav className="mr" navbar>
-              <NavItem>
-                <Navlink to="/feed">Feed</Navlink>
-              </NavItem>
-              <NavItem>
-                <Navlink to="/account">Account</Navlink>
-              </NavItem>
-            </Nav>
-          </Collapse>
+                  <DropdownMenu>
+                    <DropdownLink style={{color:'#212529'}} to="/account">Profile</DropdownLink>
+                    <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
+                    <DropdownItem divider />
+                    <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </Nav>
 
-        </Navbar>
+              {/* Collapsed menu */}
+              <Collapse isOpen={this.state.isOpen} right Collapse navbar>
+                <Nav className="mr" navbar>
+                  <NavItem><Navlink to="/feed">Feed</Navlink></NavItem>
+                  <NavItem><Navlink to="/account">Account</Navlink></NavItem>
+                </Nav>
+              </Collapse>
+            </Navbar>
+          ) : (
+            <Navbar color="light" light expand="md" className="mr-auto">
+
+              <NavbarBrand className="toolbar-brand" href="/"> 
+                <img src={logo} style={{width: '43px'}} className="d-inline-block align-top" alt="readMe logo"/>
+              </NavbarBrand>
+
+              <NavbarToggler onClick={this.toggle} /> 
+
+
+              {/* Collapsed menu */}
+              <Collapse isOpen={this.state.isOpen} right Collapse navbar>
+                <Nav className="mr" navbar>
+                  <NavItem><Navlink to="/feed">Feed</Navlink></NavItem>
+                  <NavItem><Navlink to="/account">Account</Navlink></NavItem>
+                </Nav>
+              </Collapse>
+
+              <Nav>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    <img src="http://placehold.it/50x50?text=Picture" className="profile-picture" alt="profile" />
+                  </DropdownToggle>
+
+                  <DropdownMenu>
+                    <DropdownLink style={{color:'#212529'}} to="/account">Profile</DropdownLink>
+                    <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
+                    <DropdownItem divider />
+                    <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </Nav>
+          </Navbar>
+          )}
+        </div>
       )
     }
 }
