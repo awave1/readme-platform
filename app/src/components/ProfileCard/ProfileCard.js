@@ -3,35 +3,25 @@ import './ProfileCard.css'
 
 
 class ProfileCard extends Component {
+    render() {
+      return(
+        <div className="profile-card">
+          <div className="profile-thumbnail"
+            style={{
+              backgroundImage: `url(${this.props.image})`
+            }}></div>
 
-    constructor(props) {
-        super(props)
-      }
-
-        
-
-
-      render() {
-        return(
-            <div className="profile-card">
-                <div className="profile-thumbnail">
-                style={{
-                    image: `url(${this.props.image})`
-                }}</div>
-
-                <div className="profile-card-wrap">
-                    <h2> Test User </h2>
-                    <div className="profile-card-info">
-                        <p className="info"> This is test info </p>
-                    </div>
-                    <div className="social">
-                        
-                    </div>
-                </div>
-
+          <div className="profile-info">
+            <h2>Test User</h2>
+            <div className="profile-card-info">
+              <p className="profile-info-text"> This is test info </p>
             </div>
-        )
-      }
+            <div className="profile-info-social">
+            </div>
+          </div>
+        </div>
+      )
+    }
 }
 
 
