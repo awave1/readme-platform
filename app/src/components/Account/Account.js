@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../Header/Header.js'
-import ProfileCard from '../ProfileCard/ProfileCard.js';
+import ProfileCard from '../ProfileCard/ProfileCard.js'
 
 class Account extends Component {
   render() {
