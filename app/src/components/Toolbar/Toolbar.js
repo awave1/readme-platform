@@ -29,18 +29,6 @@ class Toolbar extends Component {
               <img src={logo} style={{width: '43px'}} className="d-inline-block align-top" alt="readMe logo"/>
           </NavbarBrand>
 
-          <Collapse isOpen={this.state.isOpen} right Collapse navbar>
-            
-            <Nav className="mr" navbar>
-              <NavItem>
-                <Navlink to="/feed">Feed</Navlink>
-              </NavItem>
-              <NavItem>
-                <Navlink to="/account">Account</Navlink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-
           <Nav>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -55,6 +43,17 @@ class Toolbar extends Component {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
+          <Collapse isOpen={this.state.isOpen} right Collapse navbar>
+            
+            <Nav className="mr" navbar>
+              <NavItem>
+                <Navlink to="/feed">Feed</Navlink>
+              </NavItem>
+              <NavItem>
+                <Navlink to="/account">Account</Navlink>
+              </NavItem>
+            </Nav>
+          </Collapse>
           
         </Navbar>
       )
