@@ -1,13 +1,21 @@
 $HEADER_BG: #222;
 $LINK_COLOR: #212121;
 
-.profile-picture{
+.profile-picture {
     margin-right: 5px;
     float: left;
     border-radius: 50%;
     background-size: auto 100%; /* Interchange this value depending on prefering width vs. height */
     width: 35px;
     height: 35x;
+}
+
+.toolbar-brand {
+  margin: auto;
+}
+
+.nav-link {
+  padding: 0 !important;
 }
 
 .navbar-expand-lg .navbar-nav .dropdown-menu {

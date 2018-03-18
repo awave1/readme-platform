@@ -22,48 +22,41 @@ class Toolbar extends Component {
 
     render() {
       return (
-        <div>
-          <Navbar color="light" light expand="md" className="mr-auto">
+        <Navbar color="light" light expand="md" className="mr-auto">
+          <NavbarToggler onClick={this.toggle} /> 
+
+          <NavbarBrand className="toolbar-brand" href="/"> 
+              <img src={logo} style={{width: '43px'}} className="d-inline-block align-top" alt="readMe logo"/>
+          </NavbarBrand>
+
+          <Collapse isOpen={this.state.isOpen} right Collapse navbar>
             
-            <NavbarBrand href="/"> 
-                <img src={logo} style={{width: '43px'}} className="d-inline-block align-top" alt="readMe logo"/>
-            </NavbarBrand>
+            <Nav className="mr" navbar>
+              <NavItem>
+                <Navlink to="/feed">Feed</Navlink>
+              </NavItem>
+              <NavItem>
+                <Navlink to="/account">Account</Navlink>
+              </NavItem>
+            </Nav>
+          </Collapse>
 
-            <NavbarToggler onClick={this.toggle} /> 
+          <Nav>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                <img src="http://placehold.it/50x50?text=Picture" className="profile-picture" alt="profile" />
+              </DropdownToggle>
 
-            <Collapse isOpen={this.state.isOpen} right Collapse navbar>
-              
-              <Nav className="mr" navbar>
-                <NavItem>
-                  <Navlink to="/feed">Feed</Navlink>
-                </NavItem>
-                <NavItem>
-                  <Navlink to="/account">Account</Navlink>
-                </NavItem>
-              </Nav>
-
-              <Nav className="ml-auto">
-                <NavItem>
-                  
-                  <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                      <img src="http://placehold.it/50x50?text=Picture" className="profile-picture" alt="profile" />
-                    </DropdownToggle>
-
-                    <DropdownMenu>
-                      <DropdownLink style={{color:'#212529'}} to="/account">Profile</DropdownLink>
-                      <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
-                      <DropdownItem divider />
-                      <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
-
-                </NavItem>
-              </Nav>
-            </Collapse>
-            
-          </Navbar>
-        </div>
+              <DropdownMenu>
+                <DropdownLink style={{color:'#212529'}} to="/account">Profile</DropdownLink>
+                <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
+                <DropdownItem divider />
+                <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+          
+        </Navbar>
       )
     }
 }

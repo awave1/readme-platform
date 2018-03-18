@@ -7,6 +7,12 @@
   width: 35px;
   height: 35x; }
 
+.toolbar-brand {
+  margin: auto; }
+
+.nav-link {
+  padding: 0 !important; }
+
 .navbar-expand-lg .navbar-nav .dropdown-menu {
   position: absolute !important; }
 
