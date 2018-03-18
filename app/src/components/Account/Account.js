@@ -9,15 +9,18 @@ class Account extends Component {
       <div id="profile-page">
         <Header image='https://78.media.tumblr.com/26f1db79797aaf8577a32e288c5afefd/tumblr_n7yhhvUQtx1st5lhmo1_1280.jpg' lg/>
         <Row>
-          <Col sm="1">
+          <Col xs="12" lg="4">
             <ProfileCard image='http://placehold.it/100x100?text=Picture' fitToCol/>
           </Col>
-          <Col xs="6" sm="1">
+          <Col xs="12" sm="6" lg="8">
             {/* Content goes in this column */}
           </Col>
-          <Col sm="1">
-            {/* The rest is here */}
+          {/*  
+          TODO: Decide if we need this column
+          <Col xs="3" sm="12">
+           The rest is here
           </Col>
+          */}
         </Row>
       </div>
     )

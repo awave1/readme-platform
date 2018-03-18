@@ -43,8 +43,9 @@ class Toolbar extends Component {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
+
+          {/* Collapsed menu */}
           <Collapse isOpen={this.state.isOpen} right Collapse navbar>
-            
             <Nav className="mr" navbar>
               <NavItem>
                 <Navlink to="/feed">Feed</Navlink>
@@ -54,7 +55,7 @@ class Toolbar extends Component {
               </NavItem>
             </Nav>
           </Collapse>
-          
+
         </Navbar>
       )
     }
