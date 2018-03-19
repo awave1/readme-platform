@@ -1,0 +1,12 @@
+.post-list {
+  display: flex;
+  min-width: 100%;
+  min-height: 200px;
+  overflow-x: auto;
+
+  .post-list-item {
+    list-style-type: none;
+    background: #fafafa;
+    min-width: 200px;
+  }
+}

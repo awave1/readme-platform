@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Post.css'
 
 export class Post extends Component {
   render() {
@@ -13,8 +14,11 @@ export class Post extends Component {
 export class ProfilePost extends Component {
   render() {
     return(
-      <div>
-        
+      <div className="profile-post">
+        <div className="profile-post-image" style={{ height: "100px", backgroundImage: `url(${this.props.image})`}}></div>
+        <div className="profile-post-title">
+          <h3>{this.props.title}</h3>
+        </div>
       </div>
     )
   }
