@@ -13,9 +13,16 @@ class Header extends Component {
       <div 
         className="header-element"
         style={{
-          backgroundImage: `url(${this.props.image})`,
-          height: this.headerHeight
-        }}></div>
+          background: `
+            linear-gradient(
+              rgba(0, 0, 0, 0.45), 
+              rgba(0, 0, 0, 0.45)
+            ),
+            url(${this.props.image})`,
+            height: this.headerHeight
+        }}>
+        {this.props.children}
+      </div>
     )
   }
 }
