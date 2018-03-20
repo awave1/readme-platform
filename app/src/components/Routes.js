@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
-import MainPage from './MainPage/MainPage'
-import Feed from './Feed/Feed'
-import Account from './Account/Account'
+import MainPage from '../pages/MainPage/MainPage'
+import Feed from '../pages/Feed/Feed'
+import Account from '../pages/Account/Account'
 
 /** 
  * Site specific routes

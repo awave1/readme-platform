@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Toolbar from '../Toolbar/Toolbar'
-import Routes from '../Routes'
+import Toolbar from '../components/Toolbar/Toolbar'
+import Routes from '../components/Routes'
 import './App.css'
 /** 
  * App is the main entry of the website.

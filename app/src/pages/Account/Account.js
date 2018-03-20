@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Header from '../Header/Header.js'
-import PostList from '../PostList/PostList.js'
-import ProfileCard from '../ProfileCard/ProfileCard.js'
+import Header from '../../components/Header/Header'
+import PostList from '../../components/PostList/PostList'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 class Account extends Component {
   render() {
