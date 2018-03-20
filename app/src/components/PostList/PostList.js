@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Row, Col } from 'reactstrap'
 import { ProfilePost } from '../Post/Post.js'
 import './PostList.css'
 
