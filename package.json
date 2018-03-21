@@ -12,7 +12,8 @@
     "test:server": "mocha -r ts-node/register server/test/**/*.test.ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc",
-    "watch-ts": "tsc -w"
+    "watch-ts": "tsc -w",
+    "dev": "concurrently --kill-others-on-fail \"yarn build-ts\" \"yarn start_server\" \"yarn start_app\" "
   },
   "repository": {
     "type": "git",
@@ -56,6 +57,7 @@
     "@types/uuid": "^3.4.3",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
+    "concurrently": "^3.5.1",
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
