@@ -1,2 +1,1 @@
-web: npm run start_app
-api: node ./server/dist/server.js
+web: npm run dev
