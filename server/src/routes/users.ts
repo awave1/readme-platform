@@ -2,6 +2,9 @@ import Router from 'express-promise-router'
 import { Request, Response } from 'express';
 import db from '../db'
 
+/**
+ * For every route file, we need to initialize router like this and export it like shown at the bottom
+ */
 const router = Router()
 
 router.post('/new', async (req: Request, res: Response) => {
