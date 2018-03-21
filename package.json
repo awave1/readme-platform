@@ -14,7 +14,7 @@
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "build-app": "cd app && yarn build",
-    "postinstall": "yarn build-app",
+    "postinstall": "cd app && yarn install",
     "dev": "concurrently --kill-others-on-fail \"yarn build-ts\" \"yarn start_server\" \"yarn start_app\"",
     "prod": "NODE_ENV=production concurrently --kill-others-on-fail \"yarn build-app\" \"yarn build-ts\" \"yarn start_server\""
   },
