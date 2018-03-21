@@ -13,7 +13,9 @@
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
-    "dev": "concurrently --kill-others-on-fail \"yarn build-ts\" \"yarn start_server\" \"yarn start_app\" "
+    "build-app": "cd app && yarn build",
+    "dev": "concurrently --kill-others-on-fail \"yarn build-ts\" \"yarn start_server\" \"yarn start_app\"",
+    "postinstall": "concurrently \"yarn build-ts\" \"yarn build-app\""
   },
   "repository": {
     "type": "git",
