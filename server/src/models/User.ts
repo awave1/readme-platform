@@ -5,33 +5,29 @@ class User {
   readonly firstName: string
   readonly lastName: string
   readonly username: string
-  private _email: string
+  private email: string
   readonly userId: string
   private posts: Array<Post>
 
-  constructor (first: string, last: string, username: string, email: string) {
+  constructor (first: string, last: string, username: string, useremail: string) {
     this.firstName = first
     this.lastName = last
     this.username = username
-    this._email = email
+    this.email = useremail
     this.userId = uuid()
     this.posts = new Array()
   }
 
-  get fullName(): string {
+  public getFullName(): string {
     return `${this.firstName} ${this.lastName}`
   }
 
-  get email(): string {
-    return this._email
+  public getEmail(): string {
+    return this.email
   }
 
-  set email(newEmail: string) {
+  public setEmail(newEmail: string) {
     this.email = newEmail
-  }
-
-  public addNewPost(post: Post) {
-    this.posts.push(post)
   }
 
   public getPosts(): Array<Post> {
