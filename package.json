@@ -16,7 +16,7 @@
     "build-app": "cd app && yarn build",
     "postinstall": "cd app && yarn install",
     "dev": "concurrently --kill-others-on-fail \"yarn build-ts\" \"yarn start_server\" \"yarn start_app\"",
-    "prod": "npm-run-all -s build-app build-ts start_server"
+    "prod": "NODE_ENV=production npm-run-all -s build-app build-ts start_server"
   },
   "repository": {
     "type": "git",

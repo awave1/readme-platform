@@ -15,7 +15,7 @@ app.use(logger('dev'))
 
 // Serve static files if running in prod mode
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('app/build'));
+  app.use(express.static('app/build'))
 }
 
 mountRoutes(app)
