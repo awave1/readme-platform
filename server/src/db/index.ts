@@ -1,5 +1,4 @@
 import { Pool, QueryResult } from 'pg'
-const connectionString = 'postgresql://awave:password@localhost:5432/readme'
 
 const pool = new Pool({
   user: 'awave',

@@ -8,6 +8,8 @@ import db from '../db'
  * 
  * p.s. this is not js style at all
  */
+
+ // todo: refactor query to match table in tables.sql
 class UserController {
   static async createNewUser(body: any) {
     const user = new User(body.first, body.last, body.username, body.email, body.password)
