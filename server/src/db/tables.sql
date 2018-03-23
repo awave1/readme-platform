@@ -8,7 +8,8 @@ CREATE TABLE users (
     password VARCHAR UNIQUE NOT NULL,
     bookmarks VARCHAR [],
     likes VARCHAR [],
-    comments VARCHAR []
+    comments VARCHAR [],
+    date_created TIMESTAMP
 );
 
 -- author is user id
@@ -21,7 +22,8 @@ CREATE TABLE posts (
     author VARCHAR UNIQUE NOT NULL,
     likes INT,
     tags VARCHAR [],
-    comments VARCHAR []
+    comments VARCHAR [],
+    date_created TIMESTAMP
 );
 
 CREATE TABLE comments (
@@ -29,7 +31,8 @@ CREATE TABLE comments (
     comment_id VARCHAR UNIQUE NOT NULL,
     content VARCHAR NOT NULL,
     author VARCHAR NOT NULL,
-    post VARCHAR NOT NULL
+    post VARCHAR NOT NULL,
+    date_created TIMESTAMP
 );
 
 CREATE TABLE tags (
