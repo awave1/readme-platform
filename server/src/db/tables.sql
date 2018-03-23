@@ -7,10 +7,12 @@ CREATE TABLE users (
     email VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR UNIQUE NOT NULL,
     bookmarks VARCHAR [],
-    likes VARCHAR []
+    likes VARCHAR [],
+    comments VARCHAR []
 );
 
 -- author is user id
+-- tags, likes, and comments contain ids
 CREATE TABLE posts (
     id serial PRIMARY KEY,
     post_id VARCHAR UNIQUE NOT NULL,
@@ -18,7 +20,16 @@ CREATE TABLE posts (
     content VARCHAR NOT NULL,
     author VARCHAR UNIQUE NOT NULL,
     likes INT,
-    tags VARCHAR []
+    tags VARCHAR [],
+    comments VARCHAR []
+);
+
+CREATE TABLE comments (
+    id serial PRIMARY KEY,
+    comment_id VARCHAR UNIQUE NOT NULL,
+    content VARCHAR NOT NULL,
+    author VARCHAR NOT NULL,
+    post VARCHAR NOT NULL
 );
 
 CREATE TABLE tags (
