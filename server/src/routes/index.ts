@@ -1,4 +1,4 @@
-import users from './users'
+import users from './user.route'
 import { Application } from 'express';
 
 const routes = (app: Application) => {

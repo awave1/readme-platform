@@ -1,22 +1,21 @@
 import Router from 'express-promise-router'
 import { Request, Response } from 'express';
 import db from '../db'
+import User from '../models/User'
+import UserController from '../controllers/UserController'
+
 
 /**
  * For every route file, we need to initialize router like this and export it like shown at the bottom
  */
 const router = Router()
 
-router.post('/new', async (req: Request, res: Response) => {
-  const results = []
-  const data = [
-    req.body.name, 
-    req.body.username,
-    req.body.email
-  ]
-
-  const result = await db.query('INSERT INTO r_users(name, username, email) VALUES ($1, $2, $3) RETURNING *;', data)
-  res.json(result.rows[0])
+/**
+ * Create new user in database
+ */
+router.post('/create', async (req: Request, res: Response) => {
+  const result = await UserController.createNewUser(req.body)
+  res.json(result)
 })
 
 router.get('/:id', async (req: Request, res: Response) => {
