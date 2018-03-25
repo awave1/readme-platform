@@ -11,6 +11,7 @@
     "fix-server": "./node_modules/eslint/bin/eslint.js --fix .",
     "fix-app": "./app/node_modules/eslint/bin/eslint.js --fix ./app/",
     "test:server": "mocha -r ts-node/register server/test/**/*.test.ts",
+    "test:server:models": "mocha -r ts-node/register server/test/models/**/*.test.ts",
     "test:server:controllers": "mocha -r ts-node/register server/test/controllers/**/*.test.ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc",

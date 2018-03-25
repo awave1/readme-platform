@@ -1,17 +1,35 @@
 import uuid from 'uuid/v1'
-import Tag from './Tag';
+import Tag from './Tag'
+import Model from './Model'
 
-class Post {
-  readonly postId: string
-  readonly title: string
+class Post extends Model {
+  private postId: string
+  private title: string
   private content: string // note: temporary, will need to figure out how to store md
-  readonly datePublished: Date
+  private author: string
+  private likes: Array<any>
   private tags: Array<Tag>
+  private comments: Array<any>
+  private dateCreated: string
 
-  constructor() {
+  constructor(authorId: string) {
+    super()
     this.postId = uuid()
-    this.datePublished = new Date()
-    this.tags = new Array()
+    this.title = ''
+    this.content = ''
+    this.author = authorId
+    this.likes = new Array<any>()
+    this.tags = new Array<Tag>()
+    this.comments = new Array<any>()
+    this.dateCreated = new Date().toJSON()
+  }
+
+  public setTitle(title: string) {
+    this.title = title
+  }
+
+  public setContent(content: string) {
+    this.content = content
   }
 
   public addTag(tag: Tag) {
