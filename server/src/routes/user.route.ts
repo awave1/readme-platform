@@ -13,8 +13,6 @@ const router = Router()
  * Create new user in database
  */
 router.post('/create', async (req: Request, res: Response) => {
-  // A unary operator like plus triggers the valueOf method
-  // in the Date object and it returns the timestamp (without any alteration).
 
   if (!req.body.email)
     return res.status(422).json({errors: {email: "can't be blank"}})

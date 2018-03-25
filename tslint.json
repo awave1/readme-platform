@@ -10,7 +10,8 @@
         "ordered-imports":false,
         "curly": false,
         "array-type": false,
-        "arrow-parens": false
+        "arrow-parens": false,
+        "object-literal-sort-keys": false
     },
     "rulesDirectory": []
 }
