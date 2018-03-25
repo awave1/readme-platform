@@ -3,13 +3,14 @@
     "extends": [
         "tslint:recommended"
     ],
-    "jsRules": {
-        "semicolon":false,
-    },
     "rules": {
         "semicolon": [true, "never"],
-        "indent": [true, "spaces", 2]
-
+        "indent": [true, "spaces", 2],
+        "quotemark":false,
+        "ordered-imports":false,
+        "curly": false,
+        "array-type": false,
+        "arrow-parens": false
     },
     "rulesDirectory": []
 }

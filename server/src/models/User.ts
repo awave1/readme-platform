@@ -10,13 +10,14 @@ class User extends Model {
   private lastName: string
   private username: string
   private email: string
-  private password: string;
+  private password: string
   private bookmarks: Array<any>
   private likes: Array<any>
   private comments: Array<any>
   private dateCreated: string
 
-  constructor (first: string, last: string, username: string, useremail: string, password: string, dateCreated: string) {
+  constructor(first: string, last: string, username: string,
+              useremail: string, password: string, dateCreated: string) {
     super()
     this.userId = uuid()
     this.firstName = first

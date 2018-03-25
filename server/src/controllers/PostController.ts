@@ -2,8 +2,8 @@ import Post from '../models/Post'
 import db from '../db'
 
 class PostController {
-  static async createNewPost() {
-    
+  public static async createNewPost() {
+
   }
 }
 

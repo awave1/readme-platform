@@ -2,7 +2,6 @@ import uuid from 'uuid'
 import Model from './Model'
 import User from './User'
 import Post from './Post'
-import { SSL_OP_SSLREF2_REUSE_CERT_TYPE_BUG } from 'constants';
 
 class Comment extends Model {
 

@@ -1,10 +1,10 @@
 abstract class Model {
   public getValues(): Array<any> {
-    let values = new Array<any>()
-    for (let prop of Object.values(this)) {
+    const values = new Array<any>()
+    for (const prop of Object.values(this)) {
       if (Array.isArray(prop) && prop[0] instanceof Model)
         values.push(this.getIds(prop))
-      else if(prop instanceof Model)
+      else if (prop instanceof Model)
         values.push(prop.getId)
       else
         values.push(prop)
@@ -13,7 +13,7 @@ abstract class Model {
     return values
   }
 
-  abstract getId(): string
+  public abstract getId(): string
 
   private getIds(prop: Array<any>): Array<string> {
     return prop.map(e => e.getId())

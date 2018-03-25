@@ -3,38 +3,38 @@ import db from '../db'
 
 /**
  * UserController contains methods that make calls to database
- * 
+ *
  * methods are static because we don't need actual instance of UserController
- * 
+ *
  * p.s. this is not js style at all
  */
 
 class UserController {
-  static async createNewUser(user: User) {
+  public static async createNewUser(user: User) {
     let result
     try {
       const query = `
         INSERT INTO users(
-          uid, first, last, username, 
+          uid, first, last, username,
           email, password, bookmarks, likes,
-          comments, date_created) 
+          comments, date_created)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;
       `
       const { rows } = await db.query(query, user.getValues())
       result = rows[0]
-    } catch(e) {
+    } catch (e) {
       result = undefined
     }
-    
+
     return result
   }
 
-  static async getUserByUsername(username: string) {
+  public static async getUserByUsername(username: string) {
     let user
     try {
       const { rows } = await db.query('SELECT * FROM users WHERE username = $1', [username])
       user = rows[0]
-    } catch(e) {
+    } catch (e) {
       user = undefined
     }
 
