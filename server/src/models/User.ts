@@ -34,6 +34,10 @@ class User extends Model {
     return `${this.firstName} ${this.lastName}`
   }
 
+  public getUsername(): string {
+    return this.username
+  }
+
   public getEmail(): string {
     return this.email
   }

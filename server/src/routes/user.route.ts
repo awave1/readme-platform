@@ -39,10 +39,13 @@ router.post('/create', async (req: Request, res: Response) => {
   res.json(result)
 })
 
-router.get('/:id', async (req: Request, res: Response) => {
-  const { id } = req.params
-  const { rows } = await db.query('SELECT * FROM r_users WHERE id = $1', [id])
-  res.send(rows[0])
+/**
+ * get user by username
+ */
+router.get('/:username', async (req: Request, res: Response) => {
+  const { username } = req.params
+  const result = await UserController.getUserByUsername(username)
+  res.json(username)
 })
 
 export default router

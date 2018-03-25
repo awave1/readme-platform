@@ -11,21 +11,35 @@ import db from '../db'
 
 class UserController {
   static async createNewUser(user: User) {
-    const query = `
-      INSERT INTO users(
-        uid, first, last, username, 
-        email, password, bookmarks, likes,
-        comments, date_created) 
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;
-    `
-    const result = await db.query(query, user.getValues())
-    return result.rows[0]
+    let result
+    try {
+      const query = `
+        INSERT INTO users(
+          uid, first, last, username, 
+          email, password, bookmarks, likes,
+          comments, date_created) 
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;
+      `
+      const { rows } = await db.query(query, user.getValues())
+      result = rows[0]
+    } catch(e) {
+      result = undefined
+    }
+    
+    return result
   }
 
-  static async signIn() {
+  static async getUserByUsername(username: string) {
+    let user
+    try {
+      const { rows } = await db.query('SELECT * FROM users WHERE username = $1', [username])
+      user = rows[0]
+    } catch(e) {
+      user = undefined
+    }
 
+    return user
   }
-
 }
 
 export default UserController
