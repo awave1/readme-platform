@@ -17,8 +17,8 @@ class UserController {
         INSERT INTO users(
           uid, first, last, username,
           email, password, bookmarks, likes,
-          comments, date_created)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;
+          comments, date_created, verified)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *;
       `
       const { rows } = await db.query(query, user.getValues())
       result = rows[0]

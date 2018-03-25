@@ -6,4 +6,7 @@ app/build
 *.css
 yarn-error.log
 
+coverage
+.nyc_output
+
 server/dist

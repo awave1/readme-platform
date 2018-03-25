@@ -25,7 +25,7 @@ describe('userController test', () => {
     expect(res).to.haveOwnProperty('id')
     expect(res).to.haveOwnProperty('uid')
     expect(res).to.haveOwnProperty('password')
-  })
+  }).timeout(10000)
 
   it('should not insert new user - duplicate username', async () => {
     await UserController.createNewUser(user)
@@ -37,7 +37,7 @@ describe('userController test', () => {
     }
     expect(res).to.be.undefined
     await db.query('DELETE FROM users WHERE uid = $1', [user2.getId()])
-  })
+  }).timeout(10000)
 
   it('should not insert new user - duplicate email', async () => {
     await UserController.createNewUser(user)
@@ -58,7 +58,7 @@ describe('userController test', () => {
     expect(res).to.haveOwnProperty('id')
     expect(res).to.haveOwnProperty('uid')
     expect(res).to.haveOwnProperty('password')
-  })
+  }).timeout(10000)
 
   it('should not get the user from the database and return undefined', async () => {
     const res = await UserController.getUserByUsername(user.getUsername())

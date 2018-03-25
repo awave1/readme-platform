@@ -15,6 +15,7 @@ class User extends Model {
   private likes: Array<any>
   private comments: Array<any>
   private dateCreated: string
+  private verified: boolean
 
   constructor(first: string, last: string, username: string,
               useremail: string, password: string, dateCreated: string) {
@@ -29,6 +30,7 @@ class User extends Model {
     this.likes = new Array<Post>()
     this.comments = new Array<any>()
     this.dateCreated = dateCreated
+    this.verified = false
   }
 
   public getFullName(): string {
