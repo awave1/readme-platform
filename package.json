@@ -33,6 +33,7 @@
     "exclude": [
       "**/*.d.ts",
       "./server/dist/**/*",
+      "./server/test/**/*",
       "./app/**/*",
       "./coverage/**/*"
     ],
