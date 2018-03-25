@@ -1,3 +1,5 @@
+// tslint:disable
+
 import { expect } from 'chai'
 import 'mocha'
 import Comment from '../../src/models/Comment'

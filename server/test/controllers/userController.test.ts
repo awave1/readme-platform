@@ -1,4 +1,6 @@
-import chai from 'chai'
+// tslint:disable
+
+import { expect } from 'chai'
 import 'mocha'
 import bcrypt from 'bcrypt'
 import User from '../../src/models/User'
@@ -19,10 +21,10 @@ describe('userController test', () => {
 
   it('should insert user in database', async () => {
     const res = await UserController.createNewUser(user)
-    chai.expect(res).to.not.be.undefined
-    chai.expect(res).to.haveOwnProperty('id')
-    chai.expect(res).to.haveOwnProperty('uid')
-    chai.expect(res).to.haveOwnProperty('password')
+    expect(res).to.not.be.undefined
+    expect(res).to.haveOwnProperty('id')
+    expect(res).to.haveOwnProperty('uid')
+    expect(res).to.haveOwnProperty('password')
   })
 
   it('should not insert new user - duplicate username', async () => {
@@ -33,7 +35,7 @@ describe('userController test', () => {
       res = await UserController.createNewUser(user2)
     } catch(e) {
     }
-    chai.expect(res).to.be.undefined
+    expect(res).to.be.undefined
     await db.query('DELETE FROM users WHERE uid = $1', [user2.getId()])
   })
 
@@ -45,21 +47,21 @@ describe('userController test', () => {
       res = await UserController.createNewUser(user2)
     } catch(e) {
     }
-    chai.expect(res).to.be.undefined
+    expect(res).to.be.undefined
     await db.query('DELETE FROM users WHERE uid = $1', [user2.getId()])
-  })
+  }).timeout(10000)
 
   it('should get user from the database', async () => {
     await UserController.createNewUser(user)
     const res = await UserController.getUserByUsername(user.getUsername())
-    chai.expect(res).to.not.be.undefined
-    chai.expect(res).to.haveOwnProperty('id')
-    chai.expect(res).to.haveOwnProperty('uid')
-    chai.expect(res).to.haveOwnProperty('password')
+    expect(res).to.not.be.undefined
+    expect(res).to.haveOwnProperty('id')
+    expect(res).to.haveOwnProperty('uid')
+    expect(res).to.haveOwnProperty('password')
   })
 
   it('should not get the user from the database and return undefined', async () => {
     const res = await UserController.getUserByUsername(user.getUsername())
-    chai.expect(res).to.be.undefined
+    expect(res).to.be.undefined
   })
 })
