@@ -24,8 +24,8 @@ class User extends Model {
     this.username = username
     this.email = useremail
     this.password = this.hashPassword(password)
-    this.bookmarks = new Array<any>()
-    this.likes = new Array<any>()
+    this.bookmarks = new Array<Post>()
+    this.likes = new Array<Post>()
     this.comments = new Array<any>()
     this.dateCreated = dateCreated
   }

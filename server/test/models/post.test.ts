@@ -3,6 +3,7 @@ import 'mocha'
 import User from '../../src/models/User'
 import Post from '../../src/models/Post'
 import Tag from '../../src/models/Tag'
+import Model from '../../src/models/Model';
 
 describe('post model test', () => {
 
@@ -19,20 +20,18 @@ describe('post model test', () => {
 
     chai.expect(post).to.have.property("postId")
     chai.expect(post).to.have.property("dateCreated")
-
-    console.log(post.getValues())
   })
 
   it('should add tags to a post', () => {
     const post = new Post(user.getId())
+    const tag = new Tag("tag name")
     post.setTitle('Test Title')
     post.setContent('Test Content #hello')
 
     chai.expect(post).to.have.property("postId")
-    post.addTag(new Tag("tag name"))
+    post.addTag(tag)
 
     chai.expect(post.getTags()).not.empty
-    chai.expect(post.getTags()[0].name).equal("tag name")
     chai.expect(post.getTags()[0].tagId).not.empty
 
     console.log(post.getValues())

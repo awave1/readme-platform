@@ -24,6 +24,10 @@ class Post extends Model {
     this.dateCreated = new Date().toJSON()
   }
 
+  public getId(): string {
+    return this.postId
+  }
+
   public setTitle(title: string) {
     this.title = title
   }
