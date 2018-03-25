@@ -14,7 +14,19 @@ const router = Router()
  * Create new user in database
  */
 router.post('/create', async (req: Request, res: Response) => {
-  const result = await UserController.createNewUser(req.body)
+  // A unary operator like plus triggers the valueOf method 
+  // in the Date object and it returns the timestamp (without any alteration).
+  const timestamp = new Date().toJSON()
+  const user = new User(
+    req.body.first, 
+    req.body.last, 
+    req.body.username,
+    req.body.email,
+    req.body.password,
+    timestamp
+  )
+
+  const result = await UserController.createNewUser(user)
   res.json(result)
 })
 

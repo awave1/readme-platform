@@ -9,14 +9,23 @@ import db from '../db'
  * p.s. this is not js style at all
  */
 
- // todo: refactor query to match table in tables.sql
 class UserController {
-  static async createNewUser(body: any) {
-    const user = new User(body.first, body.last, body.username, body.email, body.password)
-    const query = 'INSERT INTO r_users(uid, first, last, username, email, password) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;'
-    const result = await db.query(query, user.getValues().slice(0, user.getValues().length))
+  static async createNewUser(user: User) {
+    const query = `
+      INSERT INTO users(
+        uid, first, last, username, 
+        email, password, bookmarks, likes,
+        comments, date_created) 
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *;
+    `
+    const result = await db.query(query, user.getValues())
     return result.rows[0]
   }
+
+  static async signIn() {
+
+  }
+
 }
 
 export default UserController

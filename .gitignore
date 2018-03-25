@@ -4,5 +4,6 @@
 node_modules
 app/build
 *.css
+yarn-error.log
 
 server/dist
