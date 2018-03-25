@@ -40,6 +40,18 @@ class UserController {
 
     return user
   }
+
+  public static async getUserById(id: string) {
+    let user
+    try {
+      const { rows } = await db.query('SELECT * FROM users WHERE uid = $1', [id])
+      user = rows[0]
+    } catch (e) {
+      user = undefined
+    }
+
+    return user
+  }
 }
 
 export default UserController

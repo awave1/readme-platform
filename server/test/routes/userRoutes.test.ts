@@ -7,7 +7,7 @@ import app from '../../src/app'
 import User from '../../src/models/User'
 import db from '../../src/db'
 
-describe('/api/users test', () => {
+describe('/api/users', () => {
 
   let userData: any
 
@@ -25,14 +25,13 @@ describe('/api/users test', () => {
     request(app)
       .post('/api/users/create')
       .send(userData)
-      .end(async (err, res) => {
+      .end((err, res) => {
         expect(res.status).equal(200)
         expect(res.body).not.undefined
         expect(res.body).not.empty
         expect(res.body.pasword).not.equal(userData.password)
         expect(res.body.email).equal(userData.email)
 
-        await db.query('DELETE FROM users WHERE uid = $1', [res.body.uid])
       })
     done()
   }).timeout(10000)
