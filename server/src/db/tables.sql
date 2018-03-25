@@ -19,7 +19,7 @@ CREATE TABLE posts (
     post_id VARCHAR UNIQUE NOT NULL,
     title VARCHAR NOT NULL,
     content VARCHAR NOT NULL,
-    author VARCHAR UNIQUE NOT NULL,
+    author VARCHAR NOT NULL,
     likes INT,
     tags VARCHAR [],
     comments VARCHAR [],

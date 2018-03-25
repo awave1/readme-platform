@@ -9,7 +9,8 @@ import db from '../../src/db'
 
 describe('userController test', () => {
 
-  let user: User;
+  let user: User
+  const timeout = 1000000
 
   before(async () => {
     user = new User("first", "last", "username", "email@email.com", "verysecretpassword", new Date().toJSON())
@@ -25,7 +26,7 @@ describe('userController test', () => {
     expect(res).to.haveOwnProperty('id')
     expect(res).to.haveOwnProperty('uid')
     expect(res).to.haveOwnProperty('password')
-  }).timeout(10000)
+  }).timeout(timeout)
 
   it('should not insert new user - duplicate username', async () => {
     await UserController.createNewUser(user)
@@ -37,7 +38,7 @@ describe('userController test', () => {
     }
     expect(res).to.be.undefined
     await db.query('DELETE FROM users WHERE uid = $1', [user2.getId()])
-  }).timeout(10000)
+  }).timeout(timeout)
 
   it('should not insert new user - duplicate email', async () => {
     await UserController.createNewUser(user)
@@ -49,7 +50,7 @@ describe('userController test', () => {
     }
     expect(res).to.be.undefined
     await db.query('DELETE FROM users WHERE uid = $1', [user2.getId()])
-  }).timeout(10000)
+  }).timeout(timeout)
 
   it('should get user from the database', async () => {
     await UserController.createNewUser(user)
@@ -58,10 +59,10 @@ describe('userController test', () => {
     expect(res).to.haveOwnProperty('id')
     expect(res).to.haveOwnProperty('uid')
     expect(res).to.haveOwnProperty('password')
-  }).timeout(10000)
+  }).timeout(timeout)
 
   it('should not get the user from the database and return undefined', async () => {
     const res = await UserController.getUserByUsername(user.getUsername())
     expect(res).to.be.undefined
-  })
+  }).timeout(timeout)
 })

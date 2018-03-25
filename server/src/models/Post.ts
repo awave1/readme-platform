@@ -42,6 +42,10 @@ class Post extends Model {
     this.tags.push(tag)
   }
 
+  public removeTag(tag: Tag) {
+    this.tags = this.tags.filter(e => e.getId() !== tag.getId())
+  }
+
   public getTags(): Array<Tag> {
     return this.tags
   }

@@ -5,7 +5,7 @@ abstract class Model {
       if (Array.isArray(prop) && prop[0] instanceof Model)
         values.push(this.getIds(prop))
       else if (prop instanceof Model)
-        values.push(prop.getId)
+        values.push(prop.getId())
       else
         values.push(prop)
     }
