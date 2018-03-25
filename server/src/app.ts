@@ -2,8 +2,6 @@ import express from 'express'
 import logger from 'morgan'
 import bodyParser from 'body-parser'
 import mountRoutes from './routes'
-import * as apiVersionController from './controllers/ApiVersionController'
-import { getApiVersion } from './controllers/ApiVersionController';
 
 const app = express()
 
