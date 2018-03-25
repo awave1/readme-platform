@@ -7,7 +7,7 @@ class Post extends Model {
   private title: string
   private content: string // note: temporary, will need to figure out how to store md
   private author: string
-  private likes: Array<any>
+  private likes: number
   private tags: Array<Tag>
   private comments: Array<any>
   private dateCreated: string
@@ -18,7 +18,7 @@ class Post extends Model {
     this.title = ''
     this.content = ''
     this.author = authorId
-    this.likes = new Array<any>()
+    this.likes = 0
     this.tags = new Array<Tag>()
     this.comments = new Array<any>()
     this.dateCreated = new Date().toJSON()
