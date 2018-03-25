@@ -2,8 +2,8 @@ import uuid from 'uuid/v1'
 import Model from './Model'
 
 class Tag extends Model {
-  readonly name: string
-  readonly tagId: string
+  private name: string
+  private tagId: string
 
   constructor(name: string) {
     super()
@@ -13,6 +13,10 @@ class Tag extends Model {
 
   public getId(): string {
     return this.tagId
+  }
+
+  public getName(): string {
+    return this.name
   }
 }
 

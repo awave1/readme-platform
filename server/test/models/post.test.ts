@@ -1,4 +1,4 @@
-import chai from 'chai'
+import { expect } from 'chai'
 import 'mocha'
 import User from '../../src/models/User'
 import Post from '../../src/models/Post'
@@ -14,27 +14,25 @@ describe('post model test', () => {
   })
 
   it('should create an empty post', () => {
-    const post = new Post(user.getId())
+    const post = new Post(user)
     post.setTitle('Test Title')
     post.setContent('Test Content #hello')
 
-    chai.expect(post).to.have.property("postId")
-    chai.expect(post).to.have.property("dateCreated")
+    expect(post).to.have.property("postId")
+    expect(post).to.have.property("dateCreated")
   })
 
   it('should add tags to a post', () => {
-    const post = new Post(user.getId())
+    const post = new Post(user)
     const tag = new Tag("tag name")
     post.setTitle('Test Title')
     post.setContent('Test Content #hello')
 
-    chai.expect(post).to.have.property("postId")
+    expect(post).to.have.property("postId")
     post.addTag(tag)
 
-    chai.expect(post.getTags()).not.empty
-    chai.expect(post.getTags()[0].tagId).not.empty
-
-    console.log(post.getValues())
+    expect(post.getTags()).not.empty
+    expect(post.getTags()[0].getId()).not.empty
   })
 
 })
