@@ -21,7 +21,7 @@ class Post extends Model {
     return this.postId
   }
 
-     setTitle(title) {
+  setTitle(title) {
     this.title = title
   }
 
@@ -35,6 +35,14 @@ class Post extends Model {
 
   removeTag(tag) {
     this.tags = this.tags.filter(e => e.getId() !== tag.getId())
+  }
+
+  addComment(comment) {
+    this.comments.push(comment)
+  }
+
+  getComments() {
+    return this.comments
   }
 
   getTags() {

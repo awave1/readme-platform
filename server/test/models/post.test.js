@@ -36,4 +36,12 @@ describe('post model test', () => {
     expect(post.getTags()).not.empty
     expect(post.getTags()[0].getId()).not.empty
   })
+
+  it('should add comments to a post', () => {
+    const post = new Post(user)
+    const comment = new Comment(user, post)
+    post.addComment(comment)
+    expect(post.getComments()).not.empty
+    expect(post.getComments()[0]).deep.equal(comment)
+  })
 })

@@ -5,8 +5,9 @@ class Tag extends Model {
 
   constructor(name) {
     super()
-    this.name = name
     this.tagId = uuid()
+    this.name = name
+    this.posts = new Array()
   }
 
   getId() {
@@ -15,6 +16,14 @@ class Tag extends Model {
 
   getName() {
     return this.name
+  }
+
+  addPost(post) {
+    this.posts.push(post)
+  }
+
+  getPosts() {
+    return this.posts
   }
 }
 

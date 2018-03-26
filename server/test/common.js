@@ -1,3 +1,6 @@
+/**
+ * Contains files used in tests
+ */
 
 const chai = require('chai')
 const chaiHttp = require('chai-http')

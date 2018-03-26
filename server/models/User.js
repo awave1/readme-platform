@@ -49,6 +49,22 @@ class User extends Model {
     return this.userId
   }
 
+  addBookmark(post) {
+    this.bookmarks.push(post)
+  }
+
+  addLike(post) {
+    this.likes.push(post)
+  }
+
+  getBookmarks() {
+    return this.bookmarks
+  }
+
+  getLikes() {
+    return this.likes
+  }
+
   hashPassword(password) {
     const saltRounds = 10
     const hash = bcrypt.hashSync(password, saltRounds)
