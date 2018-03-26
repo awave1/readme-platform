@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './Register.css'
 
-export class Register extends Component {
+class Register extends Component {
     constructor(props) {
       super(props);
       this.state = {
