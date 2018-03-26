@@ -4,14 +4,15 @@ const {
   Post,
   Tag,
   User,
-  Comment
+  Comment,
+  randUser
 } = require('../common')
 
 describe('post model test', () => {
   let user
 
   before(() => {
-    user = new User("first", "last", "username", "email@email.com", "verysecretpassword", new Date().toJSON())
+    user = randUser()
   })
 
   it('should create an empty post', () => {
@@ -35,5 +36,4 @@ describe('post model test', () => {
     expect(post.getTags()).not.empty
     expect(post.getTags()[0].getId()).not.empty
   })
-
 })

@@ -11,11 +11,11 @@
     "dev": "concurrently --kill-others-on-fail \"yarn start_server\" \"yarn start_app\"",
     "prod": "NODE_ENV=production npm-run-all -s build-app start_server",
     "build-app": "cd app && yarn build",
-    "test:server": "mocha server/test/**/*.test.js",
-    "test:server:models": "mocha server/test/models/**/*.test.js",
-    "test:server:controllers": "mocha server/test/controllers/**/*.test.js",
-    "test:server:routes": "mocha server/test/routes/**/*.test.js",
-    "test:server:coverage": "nyc mocha server/test/**/*.test.js"
+    "test:server": "mocha server/test/**/*.test.js --exit",
+    "test:server:models": "mocha server/test/models/**/*.test.js --exit",
+    "test:server:controllers": "mocha server/test/controllers/**/*.test.js --exit",
+    "test:server:routes": "mocha server/test/routes/**/*.test.js --exit",
+    "test:server:coverage": "nyc mocha server/test/**/*.test.js --exit"
   },
   "repository": {
     "type": "git",

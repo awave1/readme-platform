@@ -4,18 +4,21 @@ const {
   app,
   User,
   db,
-  UserController
+  UserController,
+  faker,
+  server
 } = require('../common')
 
 describe('/api/users', () => {
   let userData
 
   beforeEach(() => {
+    const name = faker.name.findName().split(' ')
     userData = {
-      first: 'first',
-      last: 'last',
-      username: 'username',
-      email: 'email@email.com',
+      first: name[0],
+      last: name[1],
+      username: faker.internet.userName(),
+      email: faker.internet.email(),
       password: 'verysecret',
     }
   })
@@ -24,38 +27,41 @@ describe('/api/users', () => {
     request(app)
       .post('/api/users/create')
       .send(userData)
-      .end((err, res) => {
-        expect(res.status).equal(200)
-        expect(res.body).not.undefined
-        expect(res.body).not.empty
-        expect(res.body.pasword).not.equal(userData.password)
-        expect(res.body.email).equal(userData.email)
-
-      })
-    done()
-  }).timeout(10000)
-
-  it('should send invalid POST request: 422 - empty email', () => {
-    userData.email = ''
-    request(app)
-      .post('/api/users/create')
-      .send(userData)
-      .end((err, res) => {
-        expect(res.status).equal(422)
-        expect(res.body).not.undefined
-        expect(res.body).not.empty
-      })
+      .expect(200)
+      .end(done)
   })
 
-  it('should send invalid POST request: 422 - empty password', () => {
-    userData.password = ''
+  it('should send invalid POST request: 422 - empty email', (done) => {
+    const name = faker.name.findName().split(' ')
+    const userData = {
+      first: name[0],
+      last: name[1],
+      username: faker.internet.userName(),
+      email: '',
+      password: 'verysecret',
+    }
+
     request(app)
       .post('/api/users/create')
       .send(userData)
-      .end((err, res) => {
-        expect(res.status).equal(422)
-        expect(res.body).not.undefined
-        expect(res.body).not.empty
-      })
+      .expect(422)
+      .end(done)
+  })
+
+  it('should send invalid POST request: 422 - empty password', (done) => {
+    const name = faker.name.findName().split(' ')
+    const userData = {
+      first: name[0],
+      last: name[1],
+      username: faker.internet.userName(),
+      email: faker.internet.email(),
+      password: '',
+    }
+
+    request(app)
+      .post('/api/users/create')
+      .send(userData)
+      .expect(422)
+      .end(done)
   })
 })

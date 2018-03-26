@@ -2,7 +2,8 @@ const {
   expect,
   Post,
   User,
-  Comment
+  Comment,
+  randUser
 } = require('../common')
 
 
@@ -11,7 +12,7 @@ describe('comment model test', () => {
   let post
 
   before(() => {
-    user = new User("first", "last", "username", "email@email.com", "verysecretpassword", new Date().toJSON())
+    user = randUser()
     post = new Post(user)
   })
 

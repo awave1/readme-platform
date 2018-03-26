@@ -16,14 +16,7 @@ describe('userController test', () => {
   const timeout = 1000000
 
   beforeEach(async () => {
-    const name = faker.name.findName()
-    user = new User(
-      name[0],
-      name[1],
-      faker.internet.userName(),
-      faker.internet.email(),
-      faker.internet.password(),
-      new Date().toJSON())
+    user = randUser()
   })
 
   afterEach(async () => {
