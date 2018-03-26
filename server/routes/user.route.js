@@ -1,8 +1,7 @@
-import Router from 'express-promise-router'
-import { Request, Response } from 'express'
-import db from '../db'
-import User from '../models/User'
-import UserController from '../controllers/UserController'
+const Router = require('express-promise-router')
+const db = require('../db')
+const User = require('../models/User')
+const UserController = require('../controllers/UserController')
 
 /**
  * For every route file, we need to initialize router like this and export it like shown at the bottom
@@ -12,7 +11,7 @@ const router = Router()
 /**
  * Create new user in database
  */
-router.post('/create', async (req: Request, res: Response) => {
+router.post('/create', async (req, res) => {
 
   if (!req.body.email)
     return res.status(422).json({errors: {email: "can't be blank"}})
@@ -37,10 +36,10 @@ router.post('/create', async (req: Request, res: Response) => {
 /**
  * get user by username
  */
-router.get('/:username', async (req: Request, res: Response) => {
+router.get('/:username', async (req, res) => {
   const { username } = req.params
   const result = await UserController.getUserByUsername(username)
   res.json(username)
 })
 
-export default router
+module.exports = router

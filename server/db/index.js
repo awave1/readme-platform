@@ -1,5 +1,5 @@
-import { Pool, QueryResult, types } from 'pg'
-import moment from 'moment'
+const { Pool, QueryResult, types } = require('pg')
+const moment = require('moment')
 
 const TIMESTAMP_ID = 1114
 
@@ -22,6 +22,6 @@ const pool = new Pool({
 
 types.setTypeParser(TIMESTAMP_ID, str => moment.utc(str).format())
 
-export default {
-  query: (text: string, params: Array<any>) => poolDev.query(text, params),
+module.exports = {
+  query: (sql, params) => poolDev.query(sql, params)
 }

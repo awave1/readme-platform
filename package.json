@@ -4,24 +4,18 @@
   "private": true,
   "description": "",
   "scripts": {
-    "start_server": "npm-run-all -s build-ts serve",
+    "start_server": "yarn serve",
     "start_app": "cd app && yarn start",
-    "serve": "node ./server/dist/server.js",
-    "fix-lint": "npm run fix-server && npm run fix-app",
-    "fix-server": "./node_modules/eslint/bin/eslint.js --fix .",
-    "fix-app": "./app/node_modules/eslint/bin/eslint.js --fix ./app/",
-    "test:server": "mocha -r ts-node/register server/test/**/*.test.ts",
-    "test:server:models": "mocha -r ts-node/register server/test/models/**/*.test.ts",
-    "test:server:controllers": "mocha -r ts-node/register server/test/controllers/**/*.test.ts",
-    "test:server:routes": "mocha -r ts-node/register server/test/routes/**/*.test.ts",
-    "test:server:coverage": "nyc mocha -r ts-node/register server/test/**/*.test.ts",
-    "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "build-ts": "tsc",
-    "watch-ts": "tsc -w",
-    "build-app": "cd app && yarn build",
+    "serve": "node ./server/server.js",
     "postinstall": "cd app && yarn install",
-    "dev": "concurrently --kill-others-on-fail \"yarn build-ts\" \"yarn start_server\" \"yarn start_app\"",
-    "prod": "NODE_ENV=production npm-run-all -s build-app build-ts start_server"
+    "dev": "concurrently --kill-others-on-fail \"yarn start_server\" \"yarn start_app\"",
+    "prod": "NODE_ENV=production npm-run-all -s build-app start_server",
+    "build-app": "cd app && yarn build",
+    "test:server": "mocha server/test/**/*.test.js",
+    "test:server:models": "mocha server/test/models/**/*.test.js",
+    "test:server:controllers": "mocha server/test/controllers/**/*.test.js",
+    "test:server:routes": "mocha server/test/routes/**/*.test.js",
+    "test:server:coverage": "nyc mocha server/test/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -51,7 +45,6 @@
   },
   "homepage": "https://github.com/awave1/readme-platform#readme",
   "dependencies": {
-    "@types/pg": "^7.4.5",
     "async": "^2.6.0",
     "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "^0.0.3",
@@ -75,19 +68,6 @@
     "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "@types/async": "^2.0.47",
-    "@types/bcrypt": "^1.0.0",
-    "@types/chai": "^4.1.2",
-    "@types/express": "^4.11.1",
-    "@types/express-session": "^1.15.8",
-    "@types/mocha": "^2.2.48",
-    "@types/morgan": "^1.7.35",
-    "@types/node": "^9.4.6",
-    "@types/passport": "^0.4.3",
-    "@types/passport-local": "^1.0.32",
-    "@types/sequelize": "^4.27.11",
-    "@types/supertest": "^2.0.4",
-    "@types/uuid": "^3.4.3",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "concurrently": "^3.5.1",
@@ -97,9 +77,6 @@
     "morgan": "^1.9.0",
     "nodemon": "^1.17.1",
     "source-map-support": "^0.5.4",
-    "supertest": "^3.0.0",
-    "ts-node": "^5.0.1",
-    "tslint": "^5.9.1",
-    "typescript": "^2.7.2"
+    "supertest": "^3.0.0"
   }
 }

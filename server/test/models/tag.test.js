@@ -1,8 +1,6 @@
-// tslint:disable
-
-import { expect } from 'chai'
-import 'mocha'
-import Tag from '../../src/models/Tag'
+const { expect } = require('chai')
+const Tag = require('../../models/Tag')
+require('mocha')
 
 describe('tag model test', () => {
   it('should create a tag', () => {

@@ -1,15 +1,15 @@
-// tslint:disable
-
-import { expect } from 'chai'
-import 'mocha'
-import bcrypt from 'bcrypt'
-import User from '../../src/models/User'
-import UserController from '../../src/controllers/UserController'
-import db from '../../src/db'
+const { expect } = require('chai')
+const bcrypt = require('bcrypt')
+require('mocha')
+const Post = require('../../models/Post')
+const User = require('../../models/User')
+const UserController = require('../../controllers/UserController')
+const db = require('../../db')
+const Tag = require('../../models/Tag')
 
 describe('userController test', () => {
 
-  let user: User
+  let user
   const timeout = 1000000
 
   before(async () => {

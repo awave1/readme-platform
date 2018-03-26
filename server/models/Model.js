@@ -1,6 +1,6 @@
-abstract class Model {
-  public getValues(): Array<any> {
-    const values = new Array<any>()
+class Model {
+  getValues() {
+    const values = new Array()
     for (const prop of Object.values(this)) {
       if (Array.isArray(prop) && prop[0] instanceof Model)
         values.push(this.getIds(prop))
@@ -13,11 +13,13 @@ abstract class Model {
     return values
   }
 
-  public abstract getId(): string
+  getId() {
+    throw new Error('implement method getId()')
+  }
 
-  private getIds(prop: Array<any>): Array<string> {
+  getIds(prop) {
     return prop.map(e => e.getId())
   }
 }
 
-export default Model
+module.exports = Model

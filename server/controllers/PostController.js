@@ -1,10 +1,10 @@
-import Post from '../models/Post'
-import User from '../models/User'
-import Tag from '../models/Tag'
-import db from '../db'
+const Post = require('../models/Post')
+const User = require('../models/User')
+const Tag = require('../models/Tag')
+const db = require('../db')
 
 class PostController {
-  public static async createNewPost(post: Post) {
+  static async createNewPost(post) {
     let result
     try {
       const query = `
@@ -22,7 +22,7 @@ class PostController {
     return result
   }
 
-  public static async addTagToPost(tag: Tag, post: Post) {
+  static async addTagToPost(tag, post) {
     let result
     try {
       const query = `
@@ -38,7 +38,7 @@ class PostController {
     return result
   }
 
-  public static async getAllPosts() {
+  static async getAllPosts() {
     let result
     try {
       const query = `
@@ -52,7 +52,7 @@ class PostController {
     return result
   }
 
-  public static async getPostsForUser(user: User) {
+  static async getPostsForUser(user) {
     let result
     try {
       const query = `
@@ -68,4 +68,4 @@ class PostController {
 
 }
 
-export default PostController
+module.exports = PostController

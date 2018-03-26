@@ -1,7 +1,7 @@
-import User from '../models/User'
-import db from '../db'
-import passport from 'passport'
-import { hashSync } from 'bcrypt'
+const User = require('../models/User')
+const passport = require('passport')
+const db = require('../db')
+const { hashSync } = require('bcrypt')
 
 /**
  * UserController contains methods that make calls to database
@@ -10,9 +10,8 @@ import { hashSync } from 'bcrypt'
  *
  * p.s. this is not js style at all
  */
-
 class UserController {
-  public static async createNewUser(user: User) {
+  static async createNewUser(user) {
     let result
     try {
       const query = `
@@ -31,7 +30,7 @@ class UserController {
     return result
   }
 
-  public static async getUserByUsername(username: string) {
+  static async getUserByUsername(username) {
     let user
     try {
       const { rows } = await db.query('SELECT * FROM users WHERE username = $1', [username])
@@ -43,7 +42,7 @@ class UserController {
     return user
   }
 
-  public static async getUserById(id: string) {
+  static async getUserById(id) {
     let user
     try {
       const { rows } = await db.query('SELECT * FROM users WHERE uid = $1', [id])
@@ -56,4 +55,4 @@ class UserController {
   }
 }
 
-export default UserController
+module.exports = UserController

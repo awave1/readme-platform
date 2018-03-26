@@ -1,15 +1,15 @@
-// tslint:disable
+const { expect } = require('chai')
+const request = require('supertest')
+const app = require('../../app')
+const User = require('../../models/User')
+const db = require('../../db')
+require('mocha')
 
-import { expect } from 'chai'
-import request from 'supertest'
-import 'mocha'
-import app from '../../src/app'
-import User from '../../src/models/User'
-import db from '../../src/db'
+
+
 
 describe('/api/users', () => {
-
-  let userData: any
+  let userData
 
   beforeEach(() => {
     userData = {

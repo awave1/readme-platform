@@ -1,13 +1,13 @@
-import express from 'express'
-import session from 'express-session'
-import logger from 'morgan'
-import bodyParser from 'body-parser'
-import passport from 'passport'
-import mountRoutes from './routes'
-import User from './models/User'
-import UserController from './controllers/UserController'
-import { Strategy as LocalStrategy } from 'passport-local'
-import { compareSync } from 'bcrypt'
+const express = require('express')
+const session = require('express-session')
+const logger = require('morgan')
+const bodyParser = require('body-parser')
+const passport = require('passport')
+const mountRoutes = require('./routes')
+const User = require('./models/User')
+const UserController = require('./controllers/UserController')
+const LocalStrategy = require('passport-local')
+const { compareSync } = require('bcrypt')
 
 const app = express()
 const SESSION_SECRET = 'l\xe9d5\xa4{\x95\xf7\xe1A\xbf\x1bl\xcb\xc8nR\x07:\x08\xd8GO0'
@@ -24,11 +24,11 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-passport.serializeUser((user: any, done) => {
+passport.serializeUser((user, done) => {
   done(null, user.uid)
 })
 
-passport.deserializeUser(async (id: any, done) => {
+passport.deserializeUser(async (id, done) => {
   UserController.getUserById(id.id)
     .then(user => done(null, user))
     .catch(err => done(err, undefined))
@@ -57,4 +57,4 @@ if (process.env.NODE_ENV === 'production') {
 
 mountRoutes(app)
 
-export default app
+module.exports = app

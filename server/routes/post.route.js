@@ -1,11 +1,10 @@
-import Router from 'express-promise-router'
-import { Request, Response } from 'express'
-import db from '../db'
-import Post from '../models/Post'
+const Router = require('express-promise-router')
+const db = require('../db')
+const Post = require('../models/Post')
 
 const router = Router()
 
-router.post('/create', (req: Request, res: Response) => {
+router.post('/create', (req, res) => {
   if (!req.body.content)
     return res.status(422).json({ errors: { content: "can't be empty" } })
 
@@ -17,4 +16,4 @@ router.post('/create', (req: Request, res: Response) => {
 
 })
 
-export default router
+module.exports = router

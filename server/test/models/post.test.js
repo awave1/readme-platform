@@ -1,15 +1,12 @@
-// tslint:disable
-
-import { expect } from 'chai'
-import 'mocha'
-import User from '../../src/models/User'
-import Post from '../../src/models/Post'
-import Tag from '../../src/models/Tag'
-import Model from '../../src/models/Model';
+const { expect } = require('chai')
+const Post = require('../../models/Post')
+const Tag = require('../../models/Tag')
+const User = require('../../models/User')
+const Comment = require('../../models/Comment')
+require('mocha')
 
 describe('post model test', () => {
-
-  let user: User
+  let user
 
   before(() => {
     user = new User("first", "last", "username", "email@email.com", "verysecretpassword", new Date().toJSON())
