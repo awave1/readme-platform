@@ -1,19 +1,26 @@
 const { expect } = require('chai')
 const bcrypt = require('bcrypt')
-require('mocha')
+const faker = require('faker')
 const Post = require('../../models/Post')
 const User = require('../../models/User')
 const UserController = require('../../controllers/UserController')
 const db = require('../../db')
-const Tag = require('../../models/Tag')
+const { randUser } = require('../common')
 
 describe('userController test', () => {
 
   let user
   const timeout = 1000000
 
-  before(async () => {
-    user = new User("first", "last", "username", "email@email.com", "verysecretpassword", new Date().toJSON())
+  beforeEach(async () => {
+    const name = faker.name.findName()
+    user = new User(
+      name[0],
+      name[1],
+      faker.internet.userName(),
+      faker.internet.email(),
+      faker.internet.password(),
+      new Date().toJSON())
   })
 
   afterEach(async () => {
@@ -35,6 +42,7 @@ describe('userController test', () => {
     try {
       res = await UserController.createNewUser(user2)
     } catch(e) {
+      console.log(e)
     }
     expect(res).to.be.undefined
     await db.query('DELETE FROM users WHERE uid = $1', [user2.getId()])
@@ -42,11 +50,12 @@ describe('userController test', () => {
 
   it('should not insert new user - duplicate email', async () => {
     await UserController.createNewUser(user)
-    const user2 = new User("first", "last", "username2", "email@email.com", "verysecretpassword", new Date().toJSON())
+    const user2 = user
     let res
     try {
       res = await UserController.createNewUser(user2)
-    } catch(e) {
+    } catch(e) { 
+      console.log(e)
     }
     expect(res).to.be.undefined
     await db.query('DELETE FROM users WHERE uid = $1', [user2.getId()])

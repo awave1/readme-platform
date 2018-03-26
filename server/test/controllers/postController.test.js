@@ -1,27 +1,28 @@
-const { expect } = require('chai')
-const bcrypt = require('bcrypt')
-require('mocha')
-const Post = require('../../models/Post')
-const User = require('../../models/User')
-const PostController = require('../../controllers/PostController')
-const db = require('../../db')
-const Tag = require('../../models/Tag')
+const {
+  expect,
+  bcrypt,
+  Post,
+  User,
+  Tag,
+  PostController,
+  db,
+  faker,
+  randUser
+} = require('../common')
 
 describe('postController test', () => {
-
   let user
   let post
   const timeout = 1000000
 
   before(async () => {
-    user = new User("first", "last", "username", "email@email.com", "verysecretpassword", new Date().toJSON())
+    user = randUser()
     post = new Post(user)
-    post.setContent('my content')
-    post.setTitle('my title')
+    post.setContent(faker.lorem.paragraph(4))
+    post.setTitle(faker.lorem.words(2))
   })
 
   afterEach(async () => {
-    await db.query('DELETE FROM users WHERE uid = $1', [user.getId()])
     await db.query('DELETE FROM posts WHERE post_id = $1', [post.getId()])
   })
 
@@ -48,7 +49,7 @@ describe('postController test', () => {
   }).timeout(timeout)
 
   it('shoud get all posts for user: no posts', async () => {
-    const user2 = new User("first", "last", "username2", "email2@email.com", "verysecretpassword", new Date().toJSON())
+    const user2 = randUser()
     const res = await PostController.getPostsForUser(user2)
     expect(res).empty
   }).timeout(timeout)
