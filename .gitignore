@@ -7,4 +7,5 @@ app/build
 yarn-error.log
 
 coverage
+complexity-report
 .nyc_output

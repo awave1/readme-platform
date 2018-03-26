@@ -15,7 +15,8 @@
     "test:server:models": "mocha server/test/models/**/*.test.js --exit",
     "test:server:controllers": "mocha server/test/controllers/**/*.test.js --exit",
     "test:server:routes": "mocha server/test/routes/**/*.test.js --exit",
-    "test:server:coverage": "nyc mocha server/test/**/*.test.js --exit"
+    "test:server:coverage": "nyc mocha server/test/**/*.test.js --exit",
+    "complexity-report": "plato -r -e .eslintrc.json -d complexity-report server"
   },
   "repository": {
     "type": "git",
@@ -77,6 +78,7 @@
     "faker": "^4.1.0",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.1",
+    "plato": "^1.7.0",
     "source-map-support": "^0.5.4",
     "supertest": "^3.0.0"
   }
