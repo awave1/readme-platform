@@ -14,10 +14,36 @@ describe('/api/auth', () => {
     request(app)
       .post('/api/auth/login')
       .send({
-        username: 'username2',
-        password: 'verysecretpassword',
+        username: 'awave',
+        password: 'relaz!99',
       })
       .expect(200)
+      .end((err, res) => {
+        console.log(res.body)
+      })
+  })
+
+  it('should not login: invalid pass', () => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        username: 'awave',
+        password: 'somepass',
+      })
+      .expect(400)
+      .end((err, res) => {
+        console.log(res.body)
+      })
+  })
+
+  it('should not login: invalid login', () => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        username: 'wave',
+        password: 'relaz!99',
+      })
+      .expect(400)
       .end((err, res) => {
         console.log(res.body)
       })

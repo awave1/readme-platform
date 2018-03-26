@@ -64,4 +64,21 @@ describe('/api/users', () => {
       .expect(422)
       .end(done)
   })
+
+  it('should GET the user by username: 200', (done) => {
+    request(app)
+      .get('/api/users/awave')
+      .expect(200)
+      .end(done)
+  })
+
+  it('should GET the user by username: 422 - user doesn\'t exist', (done) => {
+    request(app)
+      .get('/api/users/wave')
+      .expect(422)
+      .end((err, res) => {
+        console.log(res.body)
+        done()
+      })
+  })
 })

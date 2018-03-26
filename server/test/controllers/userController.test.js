@@ -28,7 +28,7 @@ describe('userController test', () => {
     await db.query('DELETE FROM users WHERE uid = $1', [userNew.getId()])
   })
 
-  it.only('should insert new user in database', async () => {
+  it('should insert new user in database', async () => {
     const res = await UserController.createNewUser(userNew)
     expect(res).to.not.be.undefined
     expect(res).to.haveOwnProperty('id')

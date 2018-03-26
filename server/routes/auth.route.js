@@ -9,8 +9,9 @@ router.post('/login', async (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (user) {
       req.logIn(user, (reqerr) => {
-        if (reqerr)
-          res.json({ success: false })
+        if (reqerr) {
+          res.status(400).json({ success: false })
+        }
         res.json({ success: true })
       })
     }

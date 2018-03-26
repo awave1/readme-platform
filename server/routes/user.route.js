@@ -38,8 +38,12 @@ router.post('/create', async (req, res) => {
  */
 router.get('/:username', async (req, res) => {
   const { username } = req.params
+
   const result = await UserController.getUserByUsername(username)
-  res.json(username)
+  if (result === undefined)
+    res.status(422).json({ success: false })
+  else
+    res.status(200).json(result)
 })
 
 module.exports = router
