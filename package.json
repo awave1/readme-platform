@@ -1,26 +1,43 @@
 {
   "name": "readme-platform",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "description": "",
   "scripts": {
-    "start_server": "node ./server/dist/server.js",
+    "start_server": "yarn serve",
     "start_app": "cd app && yarn start",
-    "fix-lint": "npm run fix-server && npm run fix-app",
-    "fix-server": "./node_modules/eslint/bin/eslint.js --fix .",
-    "fix-app": "./app/node_modules/eslint/bin/eslint.js --fix ./app/",
-    "test:server": "mocha -r ts-node/register server/test/**/*.test.ts",
-    "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "build-ts": "tsc",
-    "watch-ts": "tsc -w",
-    "build-app": "cd app && yarn build",
+    "serve": "node ./server/server.js",
     "postinstall": "cd app && yarn install",
-    "dev": "concurrently --kill-others-on-fail \"yarn build-ts\" \"yarn start_server\" \"yarn start_app\"",
-    "prod": "NODE_ENV=production npm-run-all -s build-app build-ts start_server"
+    "dev": "concurrently --kill-others-on-fail \"yarn start_server\" \"yarn start_app\"",
+    "prod": "NODE_ENV=production npm-run-all -s build-app start_server",
+    "build-app": "cd app && yarn build",
+    "test:server": "mocha server/test/**/*.test.js --exit",
+    "test:server:models": "mocha server/test/models/**/*.test.js --exit",
+    "test:server:controllers": "mocha server/test/controllers/**/*.test.js --exit",
+    "test:server:routes": "mocha server/test/routes/**/*.test.js --exit",
+    "test:server:coverage": "nyc mocha server/test/**/*.test.js --exit",
+    "complexity-report": "plato -r -e .eslintrc.json -d complexity-report server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/awave1/readme-platform.git"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "./server/dist/**/*",
+      "./server/test/**/*",
+      "./app/**/*",
+      "./coverage/**/*"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "all": true
   },
   "author": "codeplexion",
   "license": "MIT",
@@ -29,8 +46,8 @@
   },
   "homepage": "https://github.com/awave1/readme-platform#readme",
   "dependencies": {
-    "@types/pg": "^7.4.5",
     "async": "^2.6.0",
+    "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "~1.18.2",
@@ -42,34 +59,27 @@
     "express-session": "^1.15.6",
     "lodash": "^4.17.5",
     "mocha": "^5.0.1",
+    "moment": "^2.21.0",
     "npm-run-all": "^4.1.2",
-    "nyc": "^11.4.1",
+    "nyc": "^11.6.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.4.1",
+    "sequelize": "^4.37.4",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "@types/async": "^2.0.47",
-    "@types/chai": "^4.1.2",
-    "@types/express": "^4.11.1",
-    "@types/mocha": "^2.2.48",
-    "@types/morgan": "^1.7.35",
-    "@types/node": "^9.4.6",
-    "@types/passport": "^0.4.3",
-    "@types/passport-local": "^1.0.32",
-    "@types/uuid": "^3.4.3",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "concurrently": "^3.5.1",
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "faker": "^4.1.0",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.1",
-    "supertest": "^3.0.0",
-    "ts-node": "^5.0.1",
-    "tslint": "^5.9.1",
-    "typescript": "^2.7.2"
+    "plato": "^1.7.0",
+    "source-map-support": "^0.5.4",
+    "supertest": "^3.0.0"
   }
 }
