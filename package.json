@@ -16,7 +16,7 @@
     "test:server:controllers": "mocha server/test/controllers/**/*.test.js --exit",
     "test:server:routes": "mocha server/test/routes/**/*.test.js --exit",
     "test:server:coverage": "nyc mocha server/test/**/*.test.js --exit",
-    "complexity-report": "plato -r -e .eslintrc.json -d complexity-report server"
+    "complexity-report": "plato -r -e .eslintrc.json -x .test.js -d complexity-report server"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,8 @@
       "./server/dist/**/*",
       "./server/test/**/*",
       "./app/**/*",
-      "./coverage/**/*"
+      "./coverage/**/*",
+      "./complexity-report/**/*"
     ],
     "reporter": [
       "text",
