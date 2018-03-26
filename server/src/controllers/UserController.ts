@@ -1,5 +1,7 @@
 import User from '../models/User'
 import db from '../db'
+import passport from 'passport'
+import { hashSync } from 'bcrypt'
 
 /**
  * UserController contains methods that make calls to database
