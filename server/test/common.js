@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt')
 const supertest = require('supertest')
 const faker = require('faker')
 
+const Comment = require('../models/Comment')
 const User = require('../models/User')
 const Post = require('../models/Post')
 const Tag = require('../models/Tag')
@@ -24,6 +25,7 @@ exports.supertest = supertest
 exports.faker = faker
 exports.request = supertest(app)
 exports.agent = supertest.agent(app)
+exports.Comment = Comment
 exports.User = User
 exports.Post = Post
 exports.Tag = Tag

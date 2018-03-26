@@ -1,11 +1,14 @@
-const { expect } = require('chai')
-const bcrypt = require('bcrypt')
-const faker = require('faker')
-const Post = require('../../models/Post')
-const User = require('../../models/User')
-const UserController = require('../../controllers/UserController')
-const db = require('../../db')
-const { randUser } = require('../common')
+const {
+  expect,
+  bcrypt,
+  Post,
+  User,
+  Tag,
+  UserController,
+  db,
+  faker,
+  randUser
+} = require('../common')
 
 describe('userController test', () => {
 

@@ -1,6 +1,7 @@
-const { expect } = require('chai')
-const Tag = require('../../models/Tag')
-require('mocha')
+const {
+  expect,
+  Tag
+} = require('../common')
 
 describe('tag model test', () => {
   it('should create a tag', () => {

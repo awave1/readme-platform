@@ -1,12 +1,11 @@
-const { expect } = require('chai')
-const request = require('supertest')
-const app = require('../../app')
-const User = require('../../models/User')
-const db = require('../../db')
-require('mocha')
-
-
-
+const {
+  expect,
+  request,
+  app,
+  User,
+  db,
+  UserController
+} = require('../common')
 
 describe('/api/users', () => {
   let userData

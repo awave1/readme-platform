@@ -1,9 +1,11 @@
-const { expect } = require('chai')
-const Post = require('../../models/Post')
-const Tag = require('../../models/Tag')
-const User = require('../../models/User')
-const Comment = require('../../models/Comment')
-require('mocha')
+const {
+  expect,
+  bcrypt,
+  Post,
+  Tag,
+  User,
+  Comment
+} = require('../common')
 
 describe('post model test', () => {
   let user

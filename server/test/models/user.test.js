@@ -1,10 +1,10 @@
-const { expect } = require('chai')
-const bcrypt = require('bcrypt')
-const Post = require('../../models/Post')
-const Tag = require('../../models/Tag')
-const User = require('../../models/User')
-const Comment = require('../../models/Comment')
-require('mocha')
+const {
+  expect,
+  bcrypt,
+  Post,
+  Tag,
+  Comment
+} = require('../common')
 
 describe('user model test', () => {
   it('should create a user object with valid fields', () => {
