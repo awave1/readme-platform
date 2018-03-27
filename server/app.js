@@ -29,7 +29,7 @@ passport.serializeUser((user, done) => {
 })
 
 passport.deserializeUser(async (id, done) => {
-  UserController.getUserById(id.id)
+  UserController.getUserById(id)
     .then(user => done(null, user))
     .catch(err => done(err, undefined))
 })

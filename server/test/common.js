@@ -50,3 +50,17 @@ exports.randUser = () => {
     new Date().toJSON())
   return user
 }
+
+exports.login = (username, password) => {
+  return function (done) {
+    request(app)
+      .post('/api/auth/login')
+      .send({ username, password })
+      .end(onResponse)
+
+    function onResponse(err, res) {
+      if (err) return done(err)
+      return done()
+    }
+  }
+}
