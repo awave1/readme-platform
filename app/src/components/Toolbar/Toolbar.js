@@ -3,6 +3,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, Uncontrolle
 import { Navlink, DropdownLink } from './NavLink'
 import './Toolbar.css'
 import logo from '../../logo.svg'
+import Register from '../Register/Register.js'
 
 class Toolbar extends Component {
 
