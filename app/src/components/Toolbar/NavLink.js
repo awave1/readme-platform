@@ -16,7 +16,7 @@ export class DropdownLink extends Component {
   render() {
     return(
       <DropdownItem>
-        <Link style={{color:'#212529'}} to={this.props.to}>{this.props.children}</Link>
+        <Link style={{color:'#212529'}} to={this.props.to} >{this.props.children}</Link>
       </DropdownItem>
     )
   }
