@@ -25,3 +25,7 @@ $LINK_COLOR: #212121;
 .dropdown-menu {
   min-width: 7rem;
 }
+
+.dropdown-menu.show {
+  left: -50px;
+}
