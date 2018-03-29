@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import faker from 'faker'
 import { Post, ProfilePost } from '../Post/Post'
 import './PostList.css'
 
@@ -19,8 +20,17 @@ class PostList extends Component {
   generatePostsFeed() {
     let posts = []
     for (let i = 0; i < 20; i++) {
+      const author = {
+        username: faker.internet.userName(),
+        uid: faker.internet.userName(),
+      }
+      
+      const article = {
+        title: faker.lorem.words(2),
+      }
+
       posts.push(
-        <Post title={`Title #${i}`} image="https://source.unsplash.com/random/800x600" />
+        <Post author={author} title={article.title} image="https://source.unsplash.com/random/800x600" />
       )
     }
     return posts

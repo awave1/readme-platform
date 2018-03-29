@@ -18,6 +18,7 @@ class Routes extends Component {
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/feed" component={Feed}/>
         <Route exact path="/account" component={Account}/>
+        <Route path="/user/:username" component={Account}/>
       </div>
     )
   }
