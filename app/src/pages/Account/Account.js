@@ -17,7 +17,7 @@ class Account extends Component {
           <ProfileCard image='http://placehold.it/100x100?text=Picture' fitToCol/>
         </Header>
         <ListBackground>
-          <PostList/>
+          <PostList type='profile'/>
         </ListBackground>
       </div>
     )

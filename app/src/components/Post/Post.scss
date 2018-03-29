@@ -11,5 +11,30 @@
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
+}
 
+.post{
+  flex-basis: 32%;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0,0,0,0.15);
+  
+}
+.post .image{
+  height: 100px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.post h2{
+  font-size: 18px;
+  margin: 0;
+  padding: 20px 20px 0 20px;
+}
+
+.post h3{
+  font-size: 16px;
+  margin: 0;
+  padding: 8px 20px 20px 20px;
+  font-weight: normal;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ProfilePost } from '../Post/Post.js'
+import { Post, ProfilePost } from '../Post/Post'
 import './PostList.css'
 
 class PostList extends Component {
@@ -16,10 +16,21 @@ class PostList extends Component {
     return posts
   }
 
+  generatePostsFeed() {
+    let posts = []
+    for (let i = 0; i < 20; i++) {
+      posts.push(
+        <Post title={`Title #${i}`} image="https://source.unsplash.com/random/800x600" />
+      )
+    }
+    return posts
+  }
+
   render() {
+    const listClass = this.props.type === 'profile' ? 'post-list-horizontal' : 'post-list-vertical'
     return(
-      <section className="post-list">
-        {this.generatePosts()}
+      <section className={listClass}>
+        {this.props.type === 'profile' ? this.generatePosts() : this.generatePostsFeed()}
       </section>
     )
   }

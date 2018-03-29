@@ -5,7 +5,11 @@ export class Post extends Component {
   render() {
     return(
       <div class="post">
-
+        <div className="image" style={{backgroundImage:`url('${this.props.image}')`}}></div>
+        <div>
+          <h2>{this.props.title}</h2>
+          <h3>By {this.props.author}</h3>
+        </div>
       </div>
     )
   }
