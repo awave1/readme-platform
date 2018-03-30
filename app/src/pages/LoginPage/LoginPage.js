@@ -13,6 +13,7 @@ const Title = styled.h1`
 class LoginPage extends Component {
   render() {
     const isRegister = this.props.location.pathname === '/register'
+    console.log(isRegister)
 
     return(
       <div>
@@ -21,7 +22,7 @@ class LoginPage extends Component {
             <Title>Create Account</Title> : <Title>Login</Title> 
           }
         </Col>
-        <LoginForm register={{isRegister}}/>
+        <LoginForm register={isRegister}/>
       </div>
     )
   }

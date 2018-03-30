@@ -3,13 +3,22 @@ import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap
 import styled from 'styled-components'
 
 class LoginForm extends Component {
+
+  constructor(props) {
+    super(props)
+    this.handleRegister = this.handleRegister.bind(this)
+  }
+
+  handleRegister(event) {
+    
+  }
+
   render() {
     const btnText = this.props.register ? 'Submit' : 'Login'
-    const register = this.props.register === true
     return(
       <Col sm="12" md={{ size: 8, offset: 2 }}>
-        { register ? (
-        <Form className="registerForm">
+        { this.props.register ? (
+        <Form action="/api/users/create" className="registerForm" method="POST" onSubmit={this.handleRegister}>
           <FormGroup row>
             <Label for="firstName" sm={2}>First Name</Label>
             <Col sm={10}>
@@ -44,6 +53,12 @@ class LoginForm extends Component {
               <Input type="password" name="password" id="password" placeholder="Password" />
             </Col>
           </FormGroup>
+
+          <FormGroup check row >
+            <Col sm={{ size: 10,offset: 2 }} style={{ paddingLeft: '0' }}>
+              <Button type="submit">{btnText}</Button>
+            </Col>
+          </FormGroup>
         </Form>
         ) : (
         <Form className="loginForm">
@@ -61,14 +76,15 @@ class LoginForm extends Component {
             </Col>
           </FormGroup>
 
+          <FormGroup check row >
+            <Col sm={{ size: 10,offset: 2 }} style={{ paddingLeft: '0' }}>
+              <Button type="submit">{btnText}</Button>
+            </Col>
+          </FormGroup>
+
         </Form>
         ) }
 
-        <FormGroup check row >
-          <Col sm={{ size: 10,offset: 2 }} style={{ paddingLeft: '0' }}>
-            <Button>{btnText}</Button>
-          </Col>
-        </FormGroup>
       </Col>
     )
   }

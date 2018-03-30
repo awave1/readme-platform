@@ -10,6 +10,7 @@ class ProfileCard extends Component {
   }
 
   render() {
+    const { user } = this.props
     return(
       <div className="profile-card" style={{width: this.inheritWidth}}>
         <div className="profile-thumbnail"
@@ -18,7 +19,7 @@ class ProfileCard extends Component {
           }}></div>
 
         <div className="profile-info">
-          <h2>Test User</h2>
+          <h2>{`${user.first} ${user.last}`}</h2>
           <div className="profile-card-info">
             <p className="profile-info-text"> This is test info </p>
           </div>

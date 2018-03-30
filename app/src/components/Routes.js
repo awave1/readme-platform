@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import MainPage from '../pages/MainPage/MainPage'
 import LoginPage from '../pages/LoginPage/LoginPage'
-import Feed from '../pages/Feed/Feed'
-import Account from '../pages/Account/Account'
+import Feed from '../pages/FeedPage/Feed'
+import Account from '../pages/AccountPage/Account'
 
 /** 
  * Site specific routes
@@ -18,7 +18,7 @@ class Routes extends Component {
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/feed" component={Feed}/>
         <Route exact path="/account" component={Account}/>
-        <Route path="/user/:username" component={Account}/>
+        <Route path="/users/:username" component={Account}/>
       </div>
     )
   }

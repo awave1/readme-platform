@@ -23,5 +23,5 @@ const pool = new Pool({
 types.setTypeParser(TIMESTAMP_ID, str => moment.utc(str).format())
 
 module.exports = {
-  query: (sql, params) => poolDev.query(sql, params)
+  query: (sql, params) => pool.query(sql, params)
 }
