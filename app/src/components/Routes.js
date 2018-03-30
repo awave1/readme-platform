@@ -10,6 +10,19 @@ import Account from '../pages/AccountPage/Account'
  */
 // todo: replace with routes.js
 class Routes extends Component {
+
+  loggedIn() {
+
+  }
+
+  requireAuth(nextState, replace) {
+    if (!this.loggedIn()) {
+      replace({
+        pathname: '/login'
+      })
+    }
+  }
+
   render() {
     return(
       <div>
@@ -17,7 +30,6 @@ class Routes extends Component {
         <Route exact path="/register" component={LoginPage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/feed" component={Feed}/>
-        <Route exact path="/account" component={Account}/>
         <Route path="/users/:username" component={Account}/>
       </div>
     )

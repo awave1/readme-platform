@@ -7,10 +7,15 @@ class LoginForm extends Component {
   constructor(props) {
     super(props)
     this.handleRegister = this.handleRegister.bind(this)
+    this.handleLogin = this.handleLogin.bind(this)
   }
 
   handleRegister(event) {
-    
+
+  }
+
+  handleLogin(event) {
+    alert('login')
   }
 
   render() {
@@ -61,7 +66,7 @@ class LoginForm extends Component {
           </FormGroup>
         </Form>
         ) : (
-        <Form className="loginForm">
+        <Form action='/api/auth/login' className="loginForm" method="POST" onSubmit={this.handleLogin}>
           <FormGroup row>
             <Label for="username" sm={2}>Username</Label>
             <Col sm={10}>

@@ -19,12 +19,12 @@ describe('/api/posts', () => {
       .post('/api/auth/login')
       .send({
         username: 'awave',
-        password: 'relaz!99'
+        password: 'password'
       })
       .end(done)
   })
 
-  it('should successfully create a post: 200', (done) => {
+  it.only('should successfully create a post: 200', (done) => {
     authUser
       .post('/api/posts/create')
       .send({
@@ -33,6 +33,7 @@ describe('/api/posts', () => {
       })
       .expect(200)
       .end((err, res) => {
+        console.log(res)
         expect(res.body.post_id).not.empty
         expect(res.body.author.uid).eq(authUser.uid)
         done()

@@ -15,8 +15,23 @@ describe('/api/auth', () => {
       .post('/api/auth/login')
       .send({
         username: 'awave',
-        password: 'relaz!99',
+        password: 'password',
       })
+      .expect(200)
+      .end((err, res) => {
+        console.log(res.body)
+      })
+  })
+
+  it.only('should login and get loggedin user', () => {
+    request(app)
+      .post('/api/auth/login')
+      .send({
+        username: 'awave',
+        password: 'password',
+      })
+    request(app)
+      .get('/api/auth/login')
       .expect(200)
       .end((err, res) => {
         console.log(res.body)
