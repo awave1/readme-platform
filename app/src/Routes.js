@@ -36,7 +36,7 @@ class Routes extends Component {
 
   render() {
     return(
-      <div>
+      <div style={{height: "100%"}}>
         <Route exact path="/" component={MainPage} />
         <Route exact path="/register" component={LoginPage} />
         <Route exact path="/login" component={LoginPage} />

@@ -1,11 +1,27 @@
 .editor-pane {
   height: 100%;
- }
+}
+
+.preview-pane {
+  padding: 20px;
+}
+
  .CodeMirror {
   height: 100%;
   padding-top: 20px;
   padding-left: 20px;
- }
- .ReactCodeMirror {
+}
+
+.ReactCodeMirror {
   height: 100%;
- }
+}
+
+.render-output {
+  margin-top: 15px;
+}
+
+.title {
+  border: none !important;
+  font-size: 32px;
+
+}

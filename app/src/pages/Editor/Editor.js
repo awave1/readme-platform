@@ -5,7 +5,7 @@ class Editor extends Component {
 
   render() {
     return(
-      <MarkdownEditor/>
+      <MarkdownEditor style={{height: "100%"}}/>
     )
   }
 
