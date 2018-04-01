@@ -62,7 +62,8 @@ class Toolbar extends Component {
                   </DropdownToggle>
 
                   <DropdownMenu>
-                    <DropdownLink style={{color:'#212529'}} to="/account">Profile</DropdownLink>
+                    <DropdownLink style={{color:'#212529'}} to="/users/awave">Profile</DropdownLink>
+                    <DropdownLink style={{color:'#212529'}} to="/editor">Write</DropdownLink>
                     <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
                     <DropdownItem divider />
                     <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
