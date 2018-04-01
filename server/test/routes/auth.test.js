@@ -7,11 +7,13 @@ const {
   UserController
 } = require('../common')
 
+const authApp = request.agent(app)
+
 // todo: make a valid user and login with it
 describe('/api/auth', () => {
 
-  it('should login', () => {
-    request(app)
+  it('should login', (done) => {
+    authApp
       .post('/api/auth/login')
       .send({
         username: 'awave',
@@ -19,27 +21,22 @@ describe('/api/auth', () => {
       })
       .expect(200)
       .end((err, res) => {
-        console.log(res.body)
+        done()
       })
   })
 
-  it.only('should login and get loggedin user', () => {
-    request(app)
-      .post('/api/auth/login')
-      .send({
-        username: 'awave',
-        password: 'password',
-      })
-    request(app)
-      .get('/api/auth/login')
+  it('should login and get loggedin user', (done) => {
+    authApp
+      .get('/api/auth/loggedIn')
       .expect(200)
       .end((err, res) => {
         console.log(res.body)
+        done()
       })
   })
 
-  it('should not login: invalid pass', () => {
-    request(app)
+  it('should not login: invalid pass', (done) => {
+    authApp
       .post('/api/auth/login')
       .send({
         username: 'awave',
@@ -48,11 +45,12 @@ describe('/api/auth', () => {
       .expect(400)
       .end((err, res) => {
         console.log(res.body)
+        done()
       })
   })
 
-  it('should not login: invalid login', () => {
-    request(app)
+  it('should not login: invalid login', (done) => {
+    authApp
       .post('/api/auth/login')
       .send({
         username: 'wave',
@@ -61,6 +59,7 @@ describe('/api/auth', () => {
       .expect(400)
       .end((err, res) => {
         console.log(res.body)
+        done()
       })
   })
 })
