@@ -20,7 +20,18 @@ router.post('/create', isLoggedIn, async (req, res, next) => {
   const result = await PostController.createNewPost(post)
 
   res.json(result)
+})
 
+router.get('/all', async (req, res) => {
+  const posts = await PostController.getAllPosts()
+  res.json(posts)
+})
+
+router.get('/:username', async (req, res) => {
+  const { username } = req.params
+  const posts = await PostController.getPostsForUser(username)
+  console.log(posts)
+  res.json(posts)
 })
 
 module.exports = router

@@ -6,20 +6,6 @@ const { isLoggedIn } = require('../authUtils')
 
 const router = Router()
 
-// router.post('/login', async (req, res, next) => {
-//   passport.authenticate('local', (err, user, info) => {
-//     if (user) {
-//       req.logIn(user, (reqerr) => {
-//         if (reqerr) {
-//           res.status(400).json({ success: false , user: undefined })
-//         }
-//         res.status(200).json({ success: true , user })
-//         console.log(user)
-//       })
-//     }
-//   })(req, res, next)
-// })
-
 router.post('/login', (req, res, next) => {
 	passport.authenticate('local', (err, user, info) => {
 		if (err) {
@@ -41,7 +27,8 @@ router.post('/login', (req, res, next) => {
 })
 
 
-router.get('/loggedIn', isLoggedIn, (req, res, next) => {
+router.get('/loggedIn', (req, res, next) => {
+  console.log(req.user)
   if(req.user)
     res.status(200).json({
       success: true,

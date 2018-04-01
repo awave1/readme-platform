@@ -27,7 +27,7 @@ describe('/api/posts', () => {
       })
   })
 
-  it.only('should successfully create a post: 200', (done) => {
+  it('should successfully create a post: 200', (done) => {
     authUser
       .post('/api/posts/create')
       .send({

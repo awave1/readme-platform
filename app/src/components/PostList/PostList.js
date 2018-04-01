@@ -5,42 +5,49 @@ import './PostList.css'
 
 class PostList extends Component {
 
-  // only for testning
-  // todo: remove later
-  generatePosts() {
-    let posts = []
-    for (let i = 0; i < 20; i++) {
-      posts.push(
-        <ProfilePost title={`Title #${i}`} image="https://source.unsplash.com/random/800x600" />
-      )
-    }
+  state = {
+    posts: []
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.posts = []
+    this.getAllPosts = this.getAllPosts.bind(this)
+  }
+  
+  async getAllPosts() {
+    const result = await fetch('/api/posts/all')
+    const posts = await result.json()
     return posts
   }
 
-  generatePostsFeed() {
-    let posts = []
-    for (let i = 0; i < 20; i++) {
-      const author = {
-        username: faker.internet.userName(),
-        uid: faker.internet.userName(),
-      }
-      
-      const article = {
-        title: faker.lorem.words(2),
-      }
-
-      posts.push(
-        <Post author={author} title={article.title} image="https://source.unsplash.com/random/800x600" />
-      )
-    }
+  async getPostsForUser() {
+    const username = this.props.user.slice(1).split('/')[1]
+    const result = await fetch(`/api/posts/${username}`)
+    const posts = await result.json()
     return posts
+  }
+      
+  async componentDidMount() {
+    let posts = []
+    if (this.props.type === 'feed') {
+      posts = await this.getAllPosts()
+      this.posts = posts.map(post => <Post author={post.author} title={post.title} />)
+    } else {
+      posts = await this.getPostsForUser()
+      this.posts = posts.map(post => <ProfilePost title={post.title} />)
+    }
+    this.setState({
+      posts: this.posts
+    })
   }
 
   render() {
     const listClass = this.props.type === 'profile' ? 'post-list-horizontal' : 'post-list-vertical'
     return(
       <section className={listClass}>
-        {this.props.type === 'profile' ? this.generatePosts() : this.generatePostsFeed()}
+        {this.state.posts}
       </section>
     )
   }

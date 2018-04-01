@@ -13,7 +13,6 @@ const Title = styled.h1`
 class LoginPage extends Component {
   render() {
     const isRegister = this.props.location.pathname === '/register'
-    console.log(isRegister)
 
     return(
       <div>

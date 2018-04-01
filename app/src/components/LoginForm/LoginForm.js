@@ -4,6 +4,11 @@ import styled from 'styled-components'
 
 class LoginForm extends Component {
 
+  state = {
+    username: '',
+    password: '',
+  }
+
   constructor(props) {
     super(props)
     this.handleRegister = this.handleRegister.bind(this)
@@ -11,11 +16,28 @@ class LoginForm extends Component {
   }
 
   handleRegister(event) {
-
+    event.preventDefault()
   }
 
-  handleLogin(event) {
-    alert('login')
+  async handleLogin(event) {
+    event.preventDefault()
+    const myHeaders = new Headers()
+    myHeaders.append('Content-Type', 'application/json')
+
+    const data = { 
+      username: this.state.username,
+      password: this.state.password,
+    }
+
+    const response = await fetch('/api/auth/login', { 
+      method: 'POST', 
+      body: JSON.stringify(data),
+      headers: myHeaders,
+      mode: 'cors',
+      cache: 'default'
+    })
+    const user = await response.json()
+    console.log(user.successful)
   }
 
   render() {
@@ -66,18 +88,20 @@ class LoginForm extends Component {
           </FormGroup>
         </Form>
         ) : (
-        <Form action='/api/auth/login' className="loginForm" method="POST" onSubmit={this.handleLogin}>
+        <Form className="loginForm" onSubmit={this.handleLogin}>
           <FormGroup row>
             <Label for="username" sm={2}>Username</Label>
             <Col sm={10}>
-              <Input type="text" name="username" id="username" placeholder="Username" />
+              <Input type="text" name="username" id="username" placeholder="Username"
+                     onChange={(event) => this.setState({ username: event.target.value })} />
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label for="password" sm={2}>Password</Label>
             <Col sm={10}>
-              <Input type="password" name="password" id="password" placeholder="Password" />
+              <Input type="password" name="password" id="password" placeholder="Password" 
+                     onChange={(event) => this.setState({ password: event.target.value })}/>
             </Col>
           </FormGroup>
 

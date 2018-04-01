@@ -5,12 +5,13 @@ import './Post.css'
 export class Post extends Component {
   render() {
     const { author } = this.props
+    console.log(author)
     return(
       <div class="post">
         <div className="image" style={{backgroundImage:`url('${this.props.image}')`}}></div>
         <div>
           <h2>{this.props.title}</h2>
-          <h3>By <Link to={`users/${author.uid}`}>{author.username}</Link></h3>
+          <h3>By <Link to={`users/${author.username}`}>{author.username}</Link></h3>
         </div>
       </div>
     )

@@ -14,10 +14,7 @@ const SESSION_SECRET = 'l\xe9d5\xa4{\x95\xf7\xe1A\xbf\x1bl\xcb\xc8nR\x07:\x08\xd
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
 app.use(session({
-  resave: true,
-  saveUninitialized: true,
   secret: SESSION_SECRET,
 }))
 
@@ -28,7 +25,7 @@ passport.serializeUser((user, done) => {
   done(null, user.uid)
 })
 
-passport.deserializeUser(async (id, done) => {
+passport.deserializeUser((id, done) => {
   UserController.getUserById(id)
     .then(user => done(null, user))
     .catch(err => done(err, undefined))

@@ -56,9 +56,11 @@ class PostController {
     let result
     try {
       const query = `
-        SELECT * FROM posts WHERE author = $1;
+        SELECT * FROM posts WHERE author ->> 'username' = $1;
       `
-      const { rows } = await db.query(query, [user.getId()])
+      console.log(user)
+      const { rows } = await db.query(query, [user])
+      console.log(rows)
       result = rows
     } catch (e) {
       result = undefined
