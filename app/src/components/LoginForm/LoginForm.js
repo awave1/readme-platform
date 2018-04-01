@@ -34,10 +34,10 @@ class LoginForm extends Component {
       body: JSON.stringify(data),
       headers: myHeaders,
       mode: 'cors',
-      cache: 'default'
+      cache: 'default',
+      credentials: 'same-origin',
     })
-    const user = await response.json()
-    console.log(user.successful)
+    await response.json()
   }
 
   render() {

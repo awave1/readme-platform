@@ -1,10 +1,11 @@
-const Router = require('express-promise-router')
+
+const express = require('express')
 const passport = require('passport')
 const db = require('../db')
 const UserController = require('../controllers/UserController')
 const { isLoggedIn } = require('../authUtils')
 
-const router = Router()
+const router = express.Router()
 
 router.post('/login', (req, res, next) => {
 	passport.authenticate('local', (err, user, info) => {

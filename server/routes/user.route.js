@@ -1,4 +1,5 @@
-const Router = require('express-promise-router')
+
+const express = require('express')
 const db = require('../db')
 const User = require('../models/User')
 const UserController = require('../controllers/UserController')
@@ -6,7 +7,7 @@ const UserController = require('../controllers/UserController')
 /**
  * For every route file, we need to initialize router like this and export it like shown at the bottom
  */
-const router = Router()
+const router = express.Router()
 
 /**
  * Create new user in database

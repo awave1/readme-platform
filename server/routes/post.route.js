@@ -1,12 +1,14 @@
-const Router = require('express-promise-router')
+const express = require('express')
+const passport = require('passport')
 const db = require('../db')
 const Post = require('../models/Post')
 const PostController = require('../controllers/PostController')
 const { isLoggedIn } = require('../authUtils')
 
-const router = Router()
+const router = express.Router()
 
 router.post('/create', isLoggedIn, async (req, res, next) => {
+  console.log(req.user)
   if (!req.body.content)
     return res.status(422).json({ errors: { content: "can't be empty" } })
 
@@ -18,6 +20,8 @@ router.post('/create', isLoggedIn, async (req, res, next) => {
 
   const post = new Post(req.user)
   const result = await PostController.createNewPost(post)
+
+  console.log(result)
 
   res.json(result)
 })

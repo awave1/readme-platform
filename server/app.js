@@ -15,6 +15,8 @@ const SESSION_SECRET = 'l\xe9d5\xa4{\x95\xf7\xe1A\xbf\x1bl\xcb\xc8nR\x07:\x08\xd
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(session({
+  saveUninitialized: true,
+  resave: true,
   secret: SESSION_SECRET,
 }))
 
@@ -22,16 +24,29 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 passport.serializeUser((user, done) => {
-  done(null, user.uid)
+  console.log('serialize')
+  console.log(user)
+  done(null, user)
 })
 
-passport.deserializeUser((id, done) => {
-  UserController.getUserById(id)
-    .then(user => done(null, user))
-    .catch(err => done(err, undefined))
+passport.deserializeUser((user, done) => {
+  console.log('deserialize')
+  UserController.getUserById(user.uid)
+    .then(user => { 
+      console.log('success')
+      console.log(user)
+      done(null, user)
+    })
+    .catch(err => {
+      console.log(err)
+      done(err, undefined)
+    })
 })
 
 passport.use(new LocalStrategy({}, (username, password, done) => {
+  console.log('local strat')
+  console.log(username)
+  console.log(password)
   UserController.getUserByUsername(username)
     .then(user => {
       if (compareSync(password, user.password))
@@ -46,6 +61,7 @@ passport.use(new LocalStrategy({}, (username, password, done) => {
 
 app.set('port', process.env.PORT || 3001)
 app.use(logger('dev'))
+// app.use((req, res, next) => {req.user = req.session.user; next()})
 
 // Serve static files if running in prod mode
 if (process.env.NODE_ENV === 'production') {
