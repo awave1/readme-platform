@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/awave1/readme-platform#readme",
   "dependencies": {
+    "@skidding/react-codemirror": "^1.0.2",
     "async": "^2.6.0",
     "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "^0.0.3",
@@ -66,6 +67,8 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.4.1",
+    "react-markdown": "^3.3.0",
+    "react-split-pane": "^0.1.77",
     "sequelize": "^4.37.4",
     "uuid": "^3.2.1"
   },
