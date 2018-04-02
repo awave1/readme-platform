@@ -52,6 +52,22 @@ class PostController {
     return result
   }
 
+  static async getPostById(postId) {
+    let result
+
+    try {
+      const query = `
+        SELECT * from posts WHERE post_id = $1
+      `
+      const { rows } = await db.query(query, [postId])
+      result = rows
+    } catch (e) {
+      result = undefined
+    }
+
+    return result[0]
+  }
+
   static async getPostsForUser(user) {
     let result
     try {

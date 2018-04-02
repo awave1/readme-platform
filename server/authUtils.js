@@ -1,8 +1,6 @@
 exports.isLoggedIn = (req, res, next) => {
   if (req.user)
-    res.status(200).json({
-      user: req.user
-    })
+    next()
   else
     res.status(500).json({ 
       success: false,

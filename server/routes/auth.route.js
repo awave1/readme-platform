@@ -28,8 +28,7 @@ router.post('/login', (req, res, next) => {
 })
 
 
-router.get('/loggedIn', (req, res, next) => {
-  console.log(req.user)
+router.get('/loggedIn', isLoggedIn, (req, res, next) => {
   if(req.user)
     res.status(200).json({
       success: true,

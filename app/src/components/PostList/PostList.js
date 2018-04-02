@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import faker from 'faker'
+import { Link } from 'react-router-dom'
 import { Post, ProfilePost } from '../Post/Post'
 import './PostList.css'
 
@@ -33,10 +34,10 @@ class PostList extends Component {
     let posts = []
     if (this.props.type === 'feed') {
       posts = await this.getAllPosts()
-      this.posts = posts.map(post => <Post author={post.author} title={post.title} />)
+      this.posts = posts.map(post => <Link to={`/posts/${post.post_id}`}><Post author={post.author} title={post.title} /> </Link>)
     } else {
       posts = await this.getPostsForUser()
-      this.posts = posts.map(post => <ProfilePost title={post.title} />)
+      this.posts = posts.map(post => <Link to={`/posts/${post.post_id}`}><ProfilePost title={post.title} /> </Link>)
     }
     this.setState({
       posts: this.posts

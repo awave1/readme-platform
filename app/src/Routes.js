@@ -4,7 +4,8 @@ import MainPage from './pages/MainPage/MainPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import Feed from './pages/FeedPage/Feed'
 import Account from './pages/AccountPage/Account'
-import Editor from './pages/Editor/Editor'
+import Editor from './pages/EditorPage/EditorPage'
+import PostPage from './pages/PostPage/PostPage'
 
 /** 
  * Site specific routes
@@ -43,6 +44,7 @@ class Routes extends Component {
         <Route exact path="/feed" component={Feed}/>
         <Route exact path="/editor" component={Editor}/>
         <Route path="/users/:username" component={Account} />
+        <Route path="/posts/:postId" component={PostPage} />
       </div>
     )
   }

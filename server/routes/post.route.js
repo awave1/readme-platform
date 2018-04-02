@@ -19,6 +19,8 @@ router.post('/create', isLoggedIn, async (req, res, next) => {
     return res.status(422).json({ errors: { content: "can't be empty", title: "can't be empty" } })
 
   const post = new Post(req.user)
+  post.setTitle(req.body.title)
+  post.setContent(req.body.content)
   const result = await PostController.createNewPost(post)
 
   console.log(result)
@@ -29,6 +31,12 @@ router.post('/create', isLoggedIn, async (req, res, next) => {
 router.get('/all', async (req, res) => {
   const posts = await PostController.getAllPosts()
   res.json(posts)
+})
+
+router.get('/:postId', async (req, res) => {
+  const { postId } = req.params
+  const post = await PostController.getPostById(postId)
+  res.json(post)
 })
 
 router.get('/:username', async (req, res) => {

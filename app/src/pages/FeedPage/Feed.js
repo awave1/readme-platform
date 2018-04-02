@@ -9,20 +9,7 @@ const FeedContainer = styled.div`
   margin-top: 15px
 `
 class Feed extends Component {
-
-  async componentDidMount() {
-    // const user = await loggedIn()
-    // console.log(user)
-    // this.setState({
-    //   user: user
-    // })
-  }
-
-
   render() {
-    // if (this.state.user && !this.state.user.success)
-      // return <Redirect to='/login' />
-
     return(
       <FeedContainer>
         <Col sm="12" md={{ size: 4, offset: 4 }}>

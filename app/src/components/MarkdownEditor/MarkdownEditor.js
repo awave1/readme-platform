@@ -48,6 +48,7 @@ class MarkdownEditor extends Component {
       credentials: 'same-origin',
     })
     const post = await response.json()
+    console.log('publish')
     console.log(post)
   }
 
