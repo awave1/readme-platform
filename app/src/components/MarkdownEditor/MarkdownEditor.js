@@ -6,7 +6,6 @@ import TextEditor from './TextEditor'
 import './MarkdownEditor.css'
 
 const EditorContainder = styled.section`
-  overflow-x: hidden;
   overflow-y: hidden;
   height: 100%;
 `
@@ -60,22 +59,24 @@ class MarkdownEditor extends Component {
 
   render() {
     return(
-      <EditorContainder>
+      <div style={{height: "100%"}}>
         <Button onClick={this.publishPost} className="float-right">Publish</Button>
         <Input type="text" name="title" className="title" placeholder='Enter your title...' onChange={this.onTitleChange}/>
-        <Row style={{height: "100%"}}>
-          <Col style={{height: "100%"}}>
-            <div className="editor-pane">
-              <TextEditor value={this.state.markdownSrc} onChange={this.onMarkdownChange} />
-            </div>
-          </Col>
-          <Col sm='6' style={{height: "100%"}}>
-            <div className="preview-pane">
-              <ReactMarkdown className="render-output" source={this.state.markdownSrc}/>
-            </div>
-          </Col>
-        </Row>
-      </EditorContainder>
+        <EditorContainder>
+          <Row style={{height: "100%"}}>
+            <Col style={{height: "100%"}}>
+              <div className="editor-pane">
+                <TextEditor value={this.state.markdownSrc} onChange={this.onMarkdownChange} />
+              </div>
+            </Col>
+            <Col sm='6' style={{height: "100%"}}>
+              <div className="preview-pane">
+                <ReactMarkdown className="render-output" source={this.state.markdownSrc}/>
+              </div>
+            </Col>
+          </Row>
+        </EditorContainder>
+      </div>
     )
   }
 }

@@ -1,22 +1,49 @@
 import React, { Component } from 'react'
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import styled from 'styled-components'
+import { withRouter } from "react-router-dom"
 
 class LoginForm extends Component {
 
   state = {
+    first: '',
+    last: '',
+    email: '',
     username: '',
     password: '',
   }
 
-  constructor(props) {
-    super(props)
+  constructor(props, context) {
+    super(props, context)
     this.handleRegister = this.handleRegister.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
   }
 
-  handleRegister(event) {
+  async handleRegister(event) {
     event.preventDefault()
+    event.preventDefault()
+    const myHeaders = new Headers()
+    myHeaders.append('Content-Type', 'application/json')
+
+    const data = { 
+      first: this.state.first,
+      last: this.state.last,
+      username: this.state.username,
+      password: this.state.password,
+      email: this.state.email,
+    }
+
+    const response = await fetch('/api/users/create', { 
+      method: 'POST', 
+      body: JSON.stringify(data),
+      headers: myHeaders,
+      mode: 'cors',
+      cache: 'default',
+      credentials: 'same-origin',
+    })
+    const user = await response.json()
+    if (user)
+      this.props.history.push('/feed')
   }
 
   async handleLogin(event) {
@@ -37,7 +64,10 @@ class LoginForm extends Component {
       cache: 'default',
       credentials: 'same-origin',
     })
-    await response.json()
+    const user = await response.json()
+    console.log(this.props.history)
+    if (user)
+      this.props.history.push('/feed')
   }
 
   render() {
@@ -49,35 +79,40 @@ class LoginForm extends Component {
           <FormGroup row>
             <Label for="firstName" sm={2}>First Name</Label>
             <Col sm={10}>
-              <Input type="text" name="first" id="firstName" placeholder="First Name" />
+              <Input type="text" name="first" id="firstName" placeholder="First Name" 
+                     onChange={(event) => this.setState({ first: event.target.value })} />
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label for="lastName" sm={2}>Last Name</Label>
             <Col sm={10}>
-              <Input type="text" name="last" id="lastName" placeholder="Last Name" />
+              <Input type="text" name="last" id="lastName" placeholder="Last Name" 
+                     onChange={(event) => this.setState({ last: event.target.value })} />
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label for="username" sm={2}>Username</Label>
             <Col sm={10}>
-              <Input type="text" name="username" id="username" placeholder="Username" />
+              <Input type="text" name="username" id="username" placeholder="Username" 
+                     onChange={(event) => this.setState({ username: event.target.value })} />
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label for="email" sm={2}>Email</Label>
             <Col sm={10}>
-              <Input type="email" name="email" id="email" placeholder="Email" />
+              <Input type="email" name="email" id="email" placeholder="Email" 
+                     onChange={(event) => this.setState({ email: event.target.value })} />
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label for="password" sm={2}>Password</Label>
             <Col sm={10}>
-              <Input type="password" name="password" id="password" placeholder="Password" />
+              <Input type="password" name="password" id="password" placeholder="Password" 
+                     onChange={(event) => this.setState({ password: event.target.value })} />
             </Col>
           </FormGroup>
 
@@ -119,4 +154,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm
+export default withRouter(LoginForm)

@@ -1,8 +1,16 @@
 
 const loggedIn = async () => {
-  const response = await fetch('/api/auth/loggedIn')
+  const myHeaders = new Headers()
+  myHeaders.append('Content-Type', 'application/json')
+
+  const response = await fetch('/api/auth/loggedIn', {
+    method: 'GET',
+    mode: 'cors',
+    cache: 'default',
+    credentials: 'same-origin',
+    headers: myHeaders,
+  })
   const user = await response.json()
-  console.log(user)
   return user
 }
 

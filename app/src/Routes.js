@@ -1,50 +1,31 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import MainPage from './pages/MainPage/MainPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import Feed from './pages/FeedPage/Feed'
 import Account from './pages/AccountPage/Account'
 import Editor from './pages/EditorPage/EditorPage'
 import PostPage from './pages/PostPage/PostPage'
+import CuteNotFoundPage from './pages/CuteNotFoundPage/CuteNotFoundPage'
+import PrivateRoute from './components/PrivateRoute'
 
 /** 
  * Site specific routes
  */
 class Routes extends Component {
-
-  constructor(props) {
-    super(props)
-    this.requireAuth = this.requireAuth.bind(this)
-    this.loggedIn = this.loggedIn.bind(this)
-  }
-
-  async loggedIn() {
-    const response = await fetch('/api/auth/loggedIn')
-    const user = await response.json()
-    console.log(user)
-    return user
-  }
-
-  requireAuth(nextState, replace) {
-    fetch('/api/auth/loggedIn')
-      .then(res => {
-        console.log(res.json())
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
-
   render() {
     return(
       <div style={{height: "100%"}}>
-        <Route exact path="/" component={MainPage} />
-        <Route exact path="/register" component={LoginPage} />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/feed" component={Feed}/>
-        <Route exact path="/editor" component={Editor}/>
-        <Route path="/users/:username" component={Account} />
-        <Route path="/posts/:postId" component={PostPage} />
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route exact path="/register" component={LoginPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/feed" component={Feed}/>
+          <PrivateRoute exact path="/editor" component={Editor}/>
+          <Route path="/users/:username" component={Account} />
+          <Route path="/posts/:postId" component={PostPage} />
+          <Route path="*" component={CuteNotFoundPage}/>
+        </Switch>
       </div>
     )
   }

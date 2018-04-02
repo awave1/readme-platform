@@ -4,7 +4,7 @@ exports.isLoggedIn = (req, res, next) => {
   else
     res.status(500).json({ 
       success: false,
-      error: "need to login" 
+      user: undefined,
     })
 }
     
