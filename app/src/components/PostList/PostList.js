@@ -34,9 +34,12 @@ class PostList extends Component {
     let posts = []
     if (this.props.type === 'feed') {
       posts = await this.getAllPosts()
+      console.log(posts)
       this.posts = posts.map(post => <Link to={`/posts/${post.post_id}`}><Post author={post.author} title={post.title} /> </Link>)
     } else {
       posts = await this.getPostsForUser()
+      console.log('profile posts')
+      console.log(posts)
       this.posts = posts.map(post => <Link to={`/posts/${post.post_id}`}><ProfilePost title={post.title} /> </Link>)
     }
     this.setState({

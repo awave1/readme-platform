@@ -79,8 +79,10 @@ class PostController {
       console.log(rows)
       result = rows
     } catch (e) {
+      console.log(e)
       result = undefined
     }
+    console.log('here')
     return result
   }
 

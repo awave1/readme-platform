@@ -33,7 +33,7 @@ router.get('/all', async (req, res) => {
   res.json(posts)
 })
 
-router.get('/:postId', async (req, res) => {
+router.get('/id/:postId', async (req, res) => {
   const { postId } = req.params
   const post = await PostController.getPostById(postId)
   res.json(post)
@@ -42,7 +42,6 @@ router.get('/:postId', async (req, res) => {
 router.get('/:username', async (req, res) => {
   const { username } = req.params
   const posts = await PostController.getPostsForUser(username)
-  console.log(posts)
   res.json(posts)
 })
 

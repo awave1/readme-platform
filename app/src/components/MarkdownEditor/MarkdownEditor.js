@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Input, Row, Col, Button } from 'reactstrap'
 import styled from 'styled-components'
+import { withRouter } from "react-router-dom"
 import TextEditor from './TextEditor'
 import './MarkdownEditor.css'
 
@@ -49,6 +50,9 @@ class MarkdownEditor extends Component {
     const post = await response.json()
     console.log('publish')
     console.log(post)
+    if (post)
+      this.props.history.push(`/posts/${post.post_id}`)
+
   }
 
   onTitleChange(e) {
@@ -81,4 +85,4 @@ class MarkdownEditor extends Component {
   }
 }
 
-export default MarkdownEditor
+export default withRouter(MarkdownEditor)

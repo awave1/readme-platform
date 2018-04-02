@@ -47,7 +47,9 @@ describe('postController test', () => {
 
   it('shoud get all posts for user: success', async () => {
     await PostController.createNewPost(post)
-    const res = await PostController.getPostsForUser(user)
+    const res = await PostController.getPostsForUser('awave')
+    console.log('all posts fro user')
+    console.log(res)
     expect(res).not.empty
   }).timeout(timeout)
 

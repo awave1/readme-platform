@@ -4,6 +4,7 @@ import { Navlink, DropdownLink } from './NavLink'
 import './Toolbar.css'
 import logo from '../../logo.svg'
 import Register from '../Register/Register.js'
+import loggedIn from '../../authUtil'
 
 class Toolbar extends Component {
 
@@ -16,6 +17,8 @@ class Toolbar extends Component {
         isOpen: false,
         width: window.innerWidth,
         height: window.innerHeight,
+        loggedIn: false,
+        username: ''
       }
     }
 
@@ -32,9 +35,15 @@ class Toolbar extends Component {
       })
     }
 
-    componentDidMount() {
+    async componentDidMount() {
       this.updateWindowDimensions()
       window.addEventListener('resize', this.updateWindowDimensions)
+      const user = await loggedIn()
+      if (user)
+        this.setState({
+          loggedIn: user.success,
+          username: user.user ? user.user.username : '', 
+        })
     }
 
     componentWillUnmount() {
@@ -43,6 +52,19 @@ class Toolbar extends Component {
 
     render() {
       const isMobile = this.state.width <= 767
+      const dropdownMenu = this.state.loggedIn ? (
+        <DropdownMenu>
+          <DropdownLink style={{color:'#212529'}} to={`/users/${this.state.username}`}>Profile</DropdownLink>
+          <DropdownLink style={{color:'#212529'}} to="/editor">Write</DropdownLink>
+          <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
+          <DropdownItem divider />
+          <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
+        </DropdownMenu>
+      ) : (
+        <DropdownMenu>
+          <DropdownLink style={{color:'#212529'}} to="/login">Login</DropdownLink>
+        </DropdownMenu>
+      )
 
       return (
         <div>
@@ -60,14 +82,7 @@ class Toolbar extends Component {
                   <DropdownToggle nav caret>
                     <img src="http://placehold.it/50x50?text=Picture" className="profile-picture" alt="profile" />
                   </DropdownToggle>
-
-                  <DropdownMenu>
-                    <DropdownLink style={{color:'#212529'}} to="/users/awave">Profile</DropdownLink>
-                    <DropdownLink style={{color:'#212529'}} to="/editor">Write</DropdownLink>
-                    <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
-                    <DropdownItem divider />
-                    <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
-                  </DropdownMenu>
+                  { dropdownMenu }
                 </UncontrolledDropdown>
               </Nav>
 
@@ -75,7 +90,6 @@ class Toolbar extends Component {
               <Collapse isOpen={this.state.isOpen} right Collapse navbar>
                 <Nav className="mr" navbar>
                   <NavItem><Navlink to="/feed">Feed</Navlink></NavItem>
-                  <NavItem><Navlink to="/account">Account</Navlink></NavItem>
                 </Nav>
               </Collapse>
             </Navbar>
@@ -93,7 +107,6 @@ class Toolbar extends Component {
               <Collapse isOpen={this.state.isOpen} right Collapse navbar>
                 <Nav className="mr" navbar>
                   <NavItem><Navlink to="/feed">Feed</Navlink></NavItem>
-                  <NavItem><Navlink to="/account">Account</Navlink></NavItem>
                 </Nav>
               </Collapse>
 
@@ -102,14 +115,7 @@ class Toolbar extends Component {
                   <DropdownToggle nav caret>
                     <img src="http://placehold.it/50x50?text=Picture" className="profile-picture" alt="profile" />
                   </DropdownToggle>
-
-                  <DropdownMenu>
-                    <DropdownLink style={{color:'#212529'}} to="/account">Profile</DropdownLink>
-                    <DropdownLink style={{color:'#212529'}} to="/editor">Write</DropdownLink>
-                    <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
-                    <DropdownItem divider />
-                    <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
-                  </DropdownMenu>
+                  { dropdownMenu }
                 </UncontrolledDropdown>
               </Nav>
           </Navbar>

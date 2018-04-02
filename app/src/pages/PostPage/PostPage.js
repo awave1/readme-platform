@@ -17,7 +17,7 @@ class PostPage extends Component {
   async getPost() {
     const postId = this.props.location.pathname.slice(1).split('/')[1]
     console.log(postId)
-    const response = await fetch(`/api/posts/${postId}`)
+    const response = await fetch(`/api/posts/id/${postId}`)
     const post = await response.json()
     this.setState({
       post: post
