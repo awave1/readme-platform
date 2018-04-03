@@ -27,6 +27,9 @@ router.post('/login', (req, res, next) => {
   })(req, res, next)
 })
 
+router.get('/logout', (req, res) => {
+  req.logout()
+})
 
 router.get('/loggedIn', isLoggedIn, (req, res, next) => {
   if(req.user)

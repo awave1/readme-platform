@@ -20,10 +20,10 @@ class Routes extends Component {
           <Route exact path="/" component={MainPage} />
           <Route exact path="/register" component={LoginPage} />
           <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/feed" component={Feed}/>
+          <PrivateRoute exact path="/feed" component={Feed}/>
           <PrivateRoute exact path="/editor" component={Editor}/>
-          <Route path="/users/:username" component={Account} />
-          <Route path="/posts/:postId" component={PostPage} />
+          <PrivateRoute path="/users/:username" component={Account} />
+          <PrivateRoute path="/posts/:postId" component={PostPage} />
           <Route path="*" component={CuteNotFoundPage}/>
         </Switch>
       </div>

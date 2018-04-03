@@ -12,6 +12,7 @@ class Toolbar extends Component {
       super(props)
       this.toggle = this.toggle.bind(this)
       this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+      this.logout = this.logout.bind(this)
       
       this.state = {
         isOpen: false,
@@ -33,6 +34,11 @@ class Toolbar extends Component {
         width: window.innerWidth,
         height: window.innerHeight,
       })
+    }
+
+    async logout() {
+      const res = await fetch('/api/auth/logout')
+      await res.json()
     }
 
     async componentDidMount() {
@@ -58,7 +64,7 @@ class Toolbar extends Component {
           <DropdownLink style={{color:'#212529'}} to="/editor">Write</DropdownLink>
           <DropdownLink style={{color:'#212529'}} to="/settings">Settings</DropdownLink>
           <DropdownItem divider />
-          <DropdownLink style={{color:'#212529'}} to="/logout">Logout</DropdownLink>
+          <DropdownLink style={{color:'#212529'}} to="/" onClick={this.logout}>Logout</DropdownLink>
         </DropdownMenu>
       ) : (
         <DropdownMenu>
@@ -106,7 +112,7 @@ class Toolbar extends Component {
               {/* Collapsed menu */}
               <Collapse isOpen={this.state.isOpen} right Collapse navbar>
                 <Nav className="mr" navbar>
-                  <NavItem><Navlink to="/feed">Feed</Navlink></NavItem>
+                  <NavItem style={{marginLeft: "15px"}}><Navlink style={{color: "#eeeeee"}} to="/feed">Feed</Navlink></NavItem>
                 </Nav>
               </Collapse>
 
