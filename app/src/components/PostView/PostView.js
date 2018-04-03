@@ -1,3 +1,7 @@
+/**
+ * Handles post view. Shown when post is opened
+ */
+
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'

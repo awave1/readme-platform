@@ -1,3 +1,6 @@
+/**
+ * Authentication utility, used to get logged in user
+ */
 
 const loggedIn = async () => {
   const myHeaders = new Headers()

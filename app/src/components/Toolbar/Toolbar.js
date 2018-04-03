@@ -1,9 +1,12 @@
+/**
+ * A component that displays toolbar on the website
+ */
+
 import React, { Component } from 'react'
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'reactstrap'
 import { Navlink, DropdownLink } from './NavLink'
 import './Toolbar.css'
 import logo from '../../logo.svg'
-import Register from '../Register/Register.js'
 import loggedIn from '../../authUtil'
 
 class Toolbar extends Component {

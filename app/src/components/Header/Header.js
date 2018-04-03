@@ -1,3 +1,9 @@
+/**
+ * This is header component that is present on profile page
+ * 
+ * Used to show background image.
+ */
+
 import React, { Component } from 'react'
 import './Header.css'
 

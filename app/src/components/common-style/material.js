@@ -1,3 +1,7 @@
+/**
+ * Colors that can be reused throughout the components
+ */
+
 const material = {
   md_red_50: "#FFEBEE",
   md_red_100: "#FFCDD2",

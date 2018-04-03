@@ -5,6 +5,7 @@
         "es6": true
     },
     "rules": {
-        "semi": ["error", "never"]
+        "semi": ["error", "never"],
+        "no-unused-expressions": 0
     }
 }

@@ -1,3 +1,7 @@
+/**
+ * Contains Post items that are displayed on profile page or on feed
+ */
+
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './Post.css'

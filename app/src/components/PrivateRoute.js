@@ -1,4 +1,8 @@
 import React from 'react'
+/**
+ * Route that can only be accessed if user is logged in
+ */
+
 import { Route, Redirect } from 'react-router-dom'
 import loggedIn from '../authUtil'
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { Col, ButtonGroup, Button } from 'reactstrap'
+import { Button } from 'reactstrap'
 import { withRouter } from 'react-router-dom'
 import Header from '../../components/Header/Header'
 

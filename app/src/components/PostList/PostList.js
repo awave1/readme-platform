@@ -1,5 +1,9 @@
+/**
+ * Handles output of list of Posts.
+ * Used in Feed or in Account page
+ */
+
 import React, { Component } from 'react'
-import faker from 'faker'
 import { Link } from 'react-router-dom'
 import { Post, ProfilePost } from '../Post/Post'
 import './PostList.css'

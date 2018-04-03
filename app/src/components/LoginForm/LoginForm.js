@@ -1,6 +1,11 @@
+/**
+ * This component used for login/register
+ * 
+ * Handles login/registrer requests to server 
+ */
+
 import React, { Component } from 'react'
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
-import styled from 'styled-components'
 import { withRouter, Link } from "react-router-dom"
 
 class LoginForm extends Component {

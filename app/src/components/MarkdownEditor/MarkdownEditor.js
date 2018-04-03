@@ -1,3 +1,10 @@
+/**
+ * Main Markdown editor component.
+ * Displays text editor and rendered output.
+ * 
+ * Handles server requests to publish the post
+ */
+
 import React, { Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Input, Row, Col, Button } from 'reactstrap'

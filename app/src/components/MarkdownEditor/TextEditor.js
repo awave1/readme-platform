@@ -1,3 +1,7 @@
+/**
+ * Text editor component. Handles text editing
+ */
+
 import React, { Component } from 'react'
 import CodeMirror from '@skidding/react-codemirror'
 require('codemirror/lib/codemirror.css')

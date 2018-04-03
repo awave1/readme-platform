@@ -1,6 +1,9 @@
+/**
+ * A user information card.
+ */
+
 import React, { Component } from 'react'
 import './ProfileCard.css'
-
 
 class ProfileCard extends Component {
 
@@ -21,7 +24,7 @@ class ProfileCard extends Component {
         <div className="profile-info">
           <h2>{`${user.first} ${user.last}`}</h2>
           <div className="profile-card-info">
-            <p className="profile-info-text"> This is test info </p>
+            <p className="profile-info-text">{user.email}</p>
           </div>
           <div className="profile-info-social">
           </div>
