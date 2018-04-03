@@ -1,6 +1,28 @@
 # readMe backend (API server)
 
-## Overview
+## Project Overview
+
+```bash
+├── README.md
+├── app.js
+├── authUtils.js
+├── controllers             # -- Server Controllers
+│   └── ...
+├── db                      # -- Database connection
+│   └── ...
+├── models                  # -- Server models
+│   └── ...
+├── routes                  # -- Server Routes
+│   └── ...
+├── server.js               # -- Main server file
+└── test                    # -- Tests for modules used on server
+    ├── controllers
+    │   └── ...
+    ├── models
+    │   └── ...
+    └── routes
+        └── ...
+```
 
 ## Setup
 
