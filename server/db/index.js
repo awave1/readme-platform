@@ -1,15 +1,12 @@
+/**
+ * Main file that handles database connection and queries
+ */
+
 const { Pool, QueryResult, types } = require('pg')
 const moment = require('moment')
 
+// id of timestamp in postgresql
 const TIMESTAMP_ID = 1114
-
-const poolDev = new Pool({
-  user: 'awave',
-  host: 'localhost',
-  database: 'readme',
-  password: 'password',
-  port: 5432,
-})
 
 const pool = new Pool({
   host: 'ec2-174-129-28-38.compute-1.amazonaws.com',
@@ -20,6 +17,7 @@ const pool = new Pool({
   ssl: true,
 })
 
+// parse dates so they can be stored properly
 types.setTypeParser(TIMESTAMP_ID, str => moment.utc(str).format())
 
 module.exports = {

@@ -1,3 +1,6 @@
+/**
+* Post routes that can be called by the front end
+*/
 
 const express = require('express')
 const db = require('../db')

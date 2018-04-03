@@ -4,6 +4,9 @@ const User = require('./User')
 const Comment = require('./Comment')
 const Tag = require('./Tag')
 
+/**
+ * Post model
+ */
 class Post extends Model {
   constructor(author) {
     super()

@@ -1,3 +1,9 @@
+/**
+ * parent class for all of the models. 
+ * 
+ * pure JavaScript doesn't support abstract classes, but we can still simulate them
+ * by throwing error if a methiod is not implemented
+ */
 class Model {
   getValues() {
     const values = new Array()
@@ -13,6 +19,9 @@ class Model {
     return values
   }
 
+  /**
+   * Abstract method, must be implemented by all children
+   */
   getId() {
     throw new Error('implement method getId()')
   }

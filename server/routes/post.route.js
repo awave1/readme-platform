@@ -1,3 +1,7 @@
+/**
+* Post routes that can be called by the front end
+*/
+
 const express = require('express')
 const passport = require('passport')
 const db = require('../db')
@@ -7,6 +11,9 @@ const { isLoggedIn } = require('../authUtils')
 
 const router = express.Router()
 
+/**
+ * Create a post
+ */
 router.post('/create', isLoggedIn, async (req, res, next) => {
   console.log(req.user)
   if (!req.body.content)
@@ -28,17 +35,26 @@ router.post('/create', isLoggedIn, async (req, res, next) => {
   res.json(result)
 })
 
+/**
+ * Get all available posts
+ */
 router.get('/all', async (req, res) => {
   const posts = await PostController.getAllPosts()
   res.json(posts)
 })
 
+/**
+ * Get post by its id
+ */
 router.get('/id/:postId', async (req, res) => {
   const { postId } = req.params
   const post = await PostController.getPostById(postId)
   res.json(post)
 })
 
+/**
+ * Get all posts for user
+ */
 router.get('/:username', async (req, res) => {
   const { username } = req.params
   const posts = await PostController.getPostsForUser(username)

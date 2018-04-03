@@ -3,6 +3,10 @@ const User = require('../models/User')
 const Tag = require('../models/Tag')
 const db = require('../db')
 
+/**
+ * PostController handles database requests that deal with Posts
+ * Post routes that can be called by the front end
+ */
 class PostController {
   static async createNewPost(post) {
     let result

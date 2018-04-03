@@ -1,6 +1,9 @@
 const uuid = require('uuid')
 const Model = require('./Model')
 
+/**
+ * Tag model
+ */
 class Tag extends Model {
 
   constructor(name) {

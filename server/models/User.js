@@ -3,6 +3,9 @@ const bcrypt = require('bcrypt')
 const Model = require('./Model')
 const Post = require('./Post')
 
+/**
+ * User model
+ */
 class User extends Model {
 
   constructor(first, last, username,

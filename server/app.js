@@ -1,3 +1,8 @@
+/**
+ * Express app component.
+ * Initializes all middleware and available API routes
+ */
+
 const express = require('express')
 const session = require('express-session')
 const logger = require('morgan')
@@ -61,7 +66,6 @@ passport.use(new LocalStrategy({}, (username, password, done) => {
 
 app.set('port', process.env.PORT || 3001)
 app.use(logger('dev'))
-// app.use((req, res, next) => {req.user = req.session.user; next()})
 
 // Serve static files if running in prod mode
 if (process.env.NODE_ENV === 'production') {

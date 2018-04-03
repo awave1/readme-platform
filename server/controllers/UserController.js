@@ -7,8 +7,6 @@ const { hashSync } = require('bcrypt')
  * UserController contains methods that make calls to database
  *
  * methods are static because we don't need actual instance of UserController
- *
- * p.s. this is not js style at all
  */
 class UserController {
   static async createNewUser(user) {

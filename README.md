@@ -1,6 +1,12 @@
 # ReadMe
 > Publishing platform avaliable for everyone.
 
+## Project Overview
+readMe is a fullstack project. It contains both server and frontend. Server is contained in a `server` folder and frontend is stored in `app` folder.
+
+## Code
+Overall, code is self documented. Method names and variable names are self-explanotory.
+
 ## Get Started
 Clone the repo: ```git clone git@github.com:awave1/readme-platform.git && cd readme-platform```
 

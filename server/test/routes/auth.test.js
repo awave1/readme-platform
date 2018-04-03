@@ -9,7 +9,6 @@ const {
 
 const authApp = request.agent(app)
 
-// todo: make a valid user and login with it
 describe('/api/auth', () => {
 
   it('should login', (done) => {

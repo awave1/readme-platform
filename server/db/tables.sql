@@ -1,3 +1,4 @@
+-- Example of our tables 
 CREATE TABLE users (
     id serial PRIMARY KEY,
     uid VARCHAR UNIQUE NOT NULL,
@@ -19,7 +20,7 @@ CREATE TABLE posts (
     post_id VARCHAR UNIQUE NOT NULL,
     title VARCHAR NOT NULL,
     content VARCHAR NOT NULL,
-    author VARCHAR NOT NULL,
+    author jsonb NOT NULL,
     likes INT,
     tags VARCHAR [],
     comments VARCHAR [],
@@ -30,7 +31,7 @@ CREATE TABLE comments (
     id serial PRIMARY KEY,
     comment_id VARCHAR UNIQUE NOT NULL,
     content VARCHAR NOT NULL,
-    author VARCHAR NOT NULL,
+    author jsonb NOT NULL,
     post VARCHAR NOT NULL,
     date_created TIMESTAMP
 );

@@ -1,3 +1,7 @@
+/**
+ * Actual routes that can be called by the front end
+ */
+
 const users = require('./user.route')
 const posts = require('./post.route')
 const auth = require('./auth.route')
