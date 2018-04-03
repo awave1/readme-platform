@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Col, ButtonGroup, Button } from 'reactstrap'
+import { withRouter } from 'react-router-dom'
 import Header from '../../components/Header/Header'
 
 const HeaderText = styled.h1`
@@ -18,13 +19,11 @@ class MainPage extends Component {
 
           <HeaderText>Welcome to readMe</HeaderText>
         </Header>
-        <ButtonGroup>
-          <Button>Login</Button>
-          <Button>Register</Button>
-        </ButtonGroup>
+        <Button size='lg' block onClick={() => this.props.history.push('/login')}>Login</Button>
+        <Button size='lg' block onClick={() => this.props.history.push('/register')}>Register</Button>
       </div>
     )
   }
 }
 
-export default MainPage
+export default withRouter(MainPage)

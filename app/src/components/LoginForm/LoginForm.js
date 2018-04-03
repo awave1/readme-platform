@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import styled from 'styled-components'
-import { withRouter } from "react-router-dom"
+import { withRouter, Link } from "react-router-dom"
 
 class LoginForm extends Component {
 
@@ -121,6 +121,7 @@ class LoginForm extends Component {
               <Button type="submit">{btnText}</Button>
             </Col>
           </FormGroup>
+          <Link to='/login'>Login</Link>
         </Form>
         ) : (
         <Form className="loginForm" onSubmit={this.handleLogin}>
@@ -145,10 +146,9 @@ class LoginForm extends Component {
               <Button type="submit">{btnText}</Button>
             </Col>
           </FormGroup>
-
+          <Link to='/register'>Register</Link>
         </Form>
         ) }
-
       </Col>
     )
   }
