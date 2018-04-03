@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Col } from 'reactstrap'
 import styled from 'styled-components'
-import Register from '../../components/Register/Register'
 import LoginForm from '../../components/LoginForm/LoginForm'
 
 const Title = styled.h1`
